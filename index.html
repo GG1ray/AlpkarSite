@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="tr">
+  <head>
+    <title>ALPKAR - Endüstriyel Tedarik & Lojistik Çözümleri</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="ALPKAR - Güvenilir, verimli ve ileri görüşlü endüstriyel tedarik ve lojistik çözümleri. Savunma sanayi, tekstil ve danışmanlık hizmetleri.">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,500&amp;display=swap">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .rd-navbar-nav .rd-nav-link.active {
+        color: #0a323a !important;
+        font-weight: 500;
+      }
+      
+      /* Buton renkleri */
+      .btn-nero {
+        background-color: #0a323a !important;
+        border-color: #0a323a !important;
+        color: #fff !important;
+      }
+      
+      .btn-nero:hover {
+        background-color: #0a323a !important;
+        border-color: #0a323a !important;
+        color: #fff !important;
+      }
+      
+      .btn-nero-outline-1 {
+        color: #0a323a !important;
+        border-color: #0a323a !important;
+      }
+      
+      .btn-nero-outline-1:hover {
+        background-color: #0a323a !important;
+        color: #fff !important;
+      }
+      
+      .btn-nero-outline-2 {
+        color: #0a323a !important;
+        border-color: #0a323a !important;
+      }
+      
+      .btn-nero-outline-2:hover {
+        background-color: #0a323a !important;
+        color: #fff !important;
+      }
+      .section {
+        scroll-margin-top: 80px;
+      }
+      
+      /* Ürünlerimiz ve İletişim bölümleri için daha fazla üst boşluk */
+      #products, #contact {
+        scroll-margin-top: 170px;
+      }
+      
+      /* Lojistik kartları arasına çizgi */
+      .icon-box-horizontal {
+        border-right: 1px solid #e5e5e5;
+        padding-right: 20px;
+        margin-right: 20px;
+      }
+      
+      /* Son kartta çizgi olmasın */
+      .col-sm-6.col-md-4:last-child .icon-box-horizontal {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+      }
+      
+      /* Mobilde çizgileri gizle */
+      @media (max-width: 768px) {
+        .icon-box-horizontal {
+          border-right: none;
+          padding-right: 0;
+          margin-right: 0;
+          border-bottom: 1px solid #e5e5e5;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+        }
+        
+        .col-sm-6.col-md-4:last-child .icon-box-horizontal {
+          border-bottom: none;
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+      }
+      
+      /* Logo max-width */
+      .rd-navbar-brand img {
+        max-width: 75%;
+        height: auto;
+      }
+      
+      /* Mobile responsive logo */
+      .rd-navbar-fixed .rd-navbar-brand img {
+        max-width: 45%;
+        height: auto;
+        margin-left: auto;
+        display: block;
+      }
+      
+      /* Logo sağ tarafa taşıma */
+      .rd-navbar-brand {
+        margin-left: auto;
+        margin-right: 0;
+      }
+      
+      /* Renk güncellemeleri */
+      .bg-nero {
+        background-color: #0a323a !important;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        color: #0a323a !important;
+      }
+      
+      .rd-navbar-nav .rd-nav-link {
+        color: #0a323a !important;
+      }
+      
+      .rd-navbar-nav .rd-nav-link:hover {
+        color: #0a323a !important;
+      }
+      
+      .rd-navbar-nav .rd-nav-link.active {
+        color: #0a323a !important;
+        font-weight: 500;
+      }
+      
+      .product-card {
+        transition: transform 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      /* Products Slider Styles */
+      .products-slider {
+        margin-top: 40px;
+      }
+      
+      .product-slide {
+        padding: 10px;
+      }
+      
+      .product-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        border: 1px solid #e9ecef;
+      }
+      
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      }
+      
+      .product-image {
+        height: 200px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .product-card:hover .product-image img {
+        transform: scale(1.1);
+      }
+      
+      .product-content {
+        padding: 25px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .product-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      
+      .product-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: #333;
+        margin: 0;
+        text-align: center;
+      }
+      
+      .product-icon {
+        color: #007bff;
+        font-size: 1.5rem;
+      }
+      
+      .product-body {
+        flex: 1;
+      }
+      
+      .product-body p {
+        color: #666;
+        font-size: 2.2rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      
+      .product-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+      }
+      
+      .product-features li {
+        color: #555;
+        font-size: 1.8rem;
+        padding: 5px 0;
+        position: relative;
+        padding-left: 20px;
+      }
+      
+      .product-features li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+      }
+      
+      .product-footer {
+        margin-top: auto;
+        text-align: center;
+      }
+      
+      .product-footer .btn {
+        width: 100%;
+        border-radius: 25px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem;
+      }
+      
+      /* Slider Navigation */
+      .slider-nav {
+        margin-top: 30px;
+      }
+      
+      .slider-nav .btn {
+        margin: 0 10px;
+        border-radius: 25px;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+      
+      .slider-nav .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      /* Owl Carousel Custom Styles */
+      .owl-carousel .owl-dots {
+        margin-top: 30px;
+      }
+      
+      .owl-carousel .owl-dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background: #ddd;
+        transition: all 0.3s ease;
+      }
+      
+      .owl-carousel .owl-dot.active {
+        background: #007bff;
+        transform: scale(1.2);
+      }
+      
+      .owl-carousel .owl-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        pointer-events: none;
+      }
+      
+      .owl-carousel .owl-prev,
+      .owl-carousel .owl-next {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #333;
+        transition: all 0.3s ease;
+        pointer-events: auto;
+      }
+      
+      .owl-carousel .owl-prev {
+        left: -25px;
+      }
+      
+      .owl-carousel .owl-next {
+        right: -25px;
+      }
+      
+      .owl-carousel .owl-prev:hover,
+      .owl-carousel .owl-next:hover {
+        background: #007bff;
+        color: #fff;
+      }
+      
+      /* Hide default owl navigation buttons */
+      .owl-carousel .owl-nav {
+        display: none !important;
+      }
+      
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .product-card {
+          margin-bottom: 20px;
+        }
+        
+        .product-image {
+          height: 150px;
+        }
+        
+        .product-content {
+          padding: 20px;
+        }
+        
+        .product-title {
+          font-size: 2rem;
+        }
+        
+        .product-body p {
+          font-size: 1.9rem;
+        }
+        
+        .product-features li {
+          font-size: 1.6rem;
+        }
+        
+        .slider-nav .btn {
+          padding: 6px 15px;
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="preloader-text"><span class="preloader-char">A</span><span class="preloader-char">L</span><span class="preloader-char">P</span><span class="preloader-char">K</span><span class="preloader-char">A</span><span class="preloader-char">R</span></div>
+    </div>
+    <div class="page">
+      <!-- Page Header-->
+      <header class="page-head">
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-default" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true" data-lg-stick-up-offset="60px" data-xl-stick-up-offset="60px" data-xxl-stick-up-offset="60px">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-custom-toggle=".rd-navbar-nav-wrap" data-custom-toggle-disable-on-blur="true"><span></span></button><a class="rd-navbar-brand brand" href="#home"><img src="images/ALPKARV2.png" alt="ALPKAR" width="187" height="60"/></a>
+              </div>
+              <div class="rd-navbar-group rd-navbar-search-wrap">
+                <div class="rd-navbar-nav-wrap">
+                  <div class="rd-navbar-nav-inner">
+                    <div class="rd-navbar-btn-wrap"><a class="btn btn-180 btn-icon btn-icon-right btn-nero-outline-1" href="#contact"><span class="icon icon-xs-smaller icomoon-chat"></span>İletişim</a></div>
+                    <ul class="rd-navbar-nav">
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#home">Ana Sayfa</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#about">Hakkımızda</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#products">Ürünlerimiz</a>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#services">Hizmetlerimiz</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      
+      <!-- Home Section -->
+      <section id="home" class="section section-intro bg-primary position-relative">
+        <div class="container">
+          <div class="row row-40">
+            <div class="col-md-8 col-lg-6 position-relative z-1">
+              <h1 class="wow">Güvenilir, verimli ve ileri görüşlü çözümler</h1>
+              <p class="wow">ALPKAR olarak endüstriyel tedarik ve lojistik alanında operasyonlarınızı güçlendiriyoruz.</p>
+              <div class="group-sm group-btn wow fadeInUp" data-wow-delay=".3s"><a class="btn btn-nero" href="#about">Hakkımızda</a><a class="btn btn-nero-outline-2" href="#contact">Ücretsiz Danışmanlık</a></div>
+            </div>
+          </div><img class="img-mod-1" src="images/ALPKARBANNER.png" alt="ALPKAR" width="950" height="920"/>
+        </div>
+      </section>
+      
+      <!-- About Section -->
+      <section id="about" class="section section-lg bg-default">
+        <div class="container">
+          <div class="row row-40 justify-content-md-between flex-column-reverse flex-md-row">
+            <div class="col-md-6">
+              <h2>ALPKAR Hakkında</h2>
+              <p>ALPKAR, net bir misyonla kuruldu: Ortaklarımızı endüstriler arasında güçlendiren güvenilir, verimli ve ileri görüşlü çözümler sunmak. Lojistik operasyonlarımızın temel taşı olmasına rağmen, uzmanlığımız kargo ve depolamanın çok ötesine uzanıyor.</p>
+              <p>Bugün ALPKAR, stratejik danışmanlık, endüstriyel tedarik ve savunma, tekstil ve imalat gibi sektörler için özel hizmetler sunan çok yönlü bir şirket olarak faaliyet gösteriyor.</p>
+              <div class="row row-xs row-20">
+                <div class="col-6 wow fadeIn" data-wow-delay=".3s">
+                  <!--Counter-->
+                  <div class="box-counter">
+                    <div class="box-counter-main">
+                      <div class="counter">6</div>
+                      <div class="counter-postfix">+</div>
+                    </div>
+                    <p class="small box-counter-title">Endüstriyel ürün kategorisi</p>
+                  </div>
+                </div>
+                <div class="col-6 wow fadeIn" data-wow-delay=".2s">
+                  <!--Counter-->
+                  <div class="box-counter">
+                    <div class="box-counter-main">
+                      <div class="counter">3</div>
+                      <div class="counter-postfix">+</div>
+                    </div>
+                    <p class="small box-counter-title">Sektörel uzmanlık alanı</p>
+                  </div>
+                </div>
+              </div><a class="btn btn-nero wow fadeInUp" href="#contact" data-wow-delay=".1s">İletişime Geçin</a>
+            </div>
+            <div class="col-md-5"><img class="wow fadeIn" src="images/pexels-frans-van-heerden-201846-2881632.jpg" alt="ALPKAR Ekibi" width="510" height="680" data-wow-delay=".3s"/>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Products Section -->
+      <section id="products" class="section section-lg bg-default">
+        <div class="container">
+          <div class="row row-30 align-items-center">
+            <div class="col-md-8">
+              <h2>Endüstriyel Malzemelerimiz</h2>
+              <p>Yüksek kaliteli endüstriyel malzemeler ve çözümler sunuyoruz.</p>
+            </div>
+            <div class="col-md-4 text-md-end"><a class="btn btn-nero-outline-1" href="#contact">Teklif Alın</a></div>
+          </div>
+          
+          <!-- Products Slider -->
+          <div class="owl-carousel owl-style-minimal products-slider" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30" data-dots="true" data-nav="true" data-loop="true" data-autoplay="true" data-autoplay-timeout="5000">
+            
+            <!-- Product 1: Anthracite -->
+            <div class="product-slide wow fadeInUp" data-wow-delay="0s">
+              <article class="product-card shadow-lg">
+                <div class="product-image">
+                  <img src="images/product-1-anthracite.png" alt="Anthracite Carbon Additive" class="img-fluid"/>
+                </div>
+                <div class="product-content">
+                  <div class="product-header">
+                    <h4 class="product-title">Anthracite Carbon Additive</h4>
+                  </div>
+                  <div class="product-body">
+                    <p>Çelik üretiminde karbon içeriğini artırmak için kullanılan yüksek kaliteli antrasit. Ningxia Taixi antrasitinden üretilir.</p>
+                    <ul class="product-features">
+                      <li>Elektrik üretimi ve döküm endüstrisi</li>
+                      <li>Yüksek karbon içeriği</li>
+                      <li>Kaliteli eritme süreci</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+            <!-- Product 2: Calcined Petroleum Coke -->
+            <div class="product-slide wow fadeInUp" data-wow-delay="0.1s">
+              <article class="product-card shadow-lg">
+                <div class="product-image">
+                  <img src="images/product-2-petroleum-coke.png" alt="Calcined Petroleum Coke" class="img-fluid"/>
+                </div>
+                <div class="product-content">
+                  <div class="product-header">
+                    <h4 class="product-title">Calcined Petroleum Coke</h4>
+                  </div>
+                  <div class="product-body">
+                    <p>Yeşil petrol kokunun kalsinasyon fırınında işlenmesiyle üretilir. Kimyasal eritme ve mekanik dökümde kullanılır.</p>
+                    <ul class="product-features">
+                      <li>Kimyasal eritme endüstrisi</li>
+                      <li>Mekanik döküm</li>
+                      <li>Petrol arama sektörü</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+            <!-- Product 3: Graphitized Petroleum Coke -->
+            <div class="product-slide wow fadeInUp" data-wow-delay="0.2s">
+              <article class="product-card shadow-lg">
+                <div class="product-image">
+                  <img src="images/product-3-graphite.png" alt="Graphitized Petroleum Coke" class="img-fluid"/>
+                </div>
+                <div class="product-content">
+                  <div class="product-header">
+                    <h4 class="product-title">Graphitized Petroleum Coke</h4>
+                  </div>
+                  <div class="product-body">
+                    <p>Düşük kükürt ve azot içeren petrol kokunun yüksek sıcaklık grafitizasyon süreciyle işlenmesiyle üretilir.</p>
+                    <ul class="product-features">
+                      <li>Yüksek kaliteli çelik üretimi</li>
+                      <li>Dökme demir ve alaşımlar</li>
+                      <li>Grafit özellikleri</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+            <!-- Product 4: Ferrosilicon -->
+            <div class="product-slide wow fadeInUp" data-wow-delay="0.3s">
+              <article class="product-card shadow-lg">
+                <div class="product-image">
+                  <img src="images/product-4-ferrosilicon.png" alt="Ferrosilicon" class="img-fluid"/>
+                </div>
+                <div class="product-content">
+                  <div class="product-header">
+                    <h4 class="product-title">Ferrosilicon</h4>
+                  </div>
+                  <div class="product-body">
+                    <p>Demir ve silikon içeren ferroalaşım. Kok, çelik hurdası, kuvars ve silika kullanılarak üretilir.</p>
+                    <ul class="product-features">
+                      <li>Çelik üretiminde deoksidan</li>
+                      <li>İndirgeyici ajan</li>
+                      <li>Yüksek kaliteli alaşım</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+            <!-- Product 5: Silicon Carbide -->
+            <div class="product-slide wow fadeInUp" data-wow-delay="0.4s">
+              <article class="product-card shadow-lg">
+                <div class="product-image">
+                  <img src="images/product-5-silicon-carbide.png" alt="Silicon Carbide" class="img-fluid"/>
+                </div>
+                <div class="product-content">
+                  <div class="product-header">
+                    <h4 class="product-title">Silicon Carbide</h4>
+                  </div>
+                  <div class="product-body">
+                    <p>Kuvars kumu ve petrol kokunun yüksek sıcaklıkta işlenmesiyle üretilir. Refrakter malzeme olarak kullanılır.</p>
+                    <ul class="product-features">
+                      <li>Refrakter malzeme</li>
+                      <li>Elektronik endüstrisi</li>
+                      <li>Yüksek performanslı işleme</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+            <!-- Product 6: Siliconmanganese -->
+            <div class="product-slide wow fadeInUp" data-wow-delay="0.5s">
+              <article class="product-card shadow-lg">
+                <div class="product-image">
+                  <img src="images/product-6-siliconmanganese.png" alt="Siliconmanganese" class="img-fluid"/>
+                </div>
+                <div class="product-content">
+                  <div class="product-header">
+                    <h4 class="product-title">Siliconmanganese</h4>
+                  </div>
+                  <div class="product-body">
+                    <p>Manganez ve silikonun oksijenle güçlü afinitesi vardır. Çelik üretiminde ideal kompleks deoksidan olarak kullanılır.</p>
+                    <ul class="product-features">
+                      <li>Kompleks deoksidan</li>
+                      <li>Düşük erime noktası</li>
+                      <li>Büyük parçacık boyutu</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+            
+          </div>
+          
+          <!-- Slider Navigation -->
+          <div class="row mt-4">
+            <div class="col-12 text-center">
+              <div class="slider-nav">
+                <button class="btn btn-sm btn-nero-outline-1 prev-slide">
+                  <span class="icon icon-xs icomoon-arrow-left"></span> Önceki
+                </button>
+                <button class="btn btn-sm btn-nero-outline-1 next-slide">
+                  Sonraki <span class="icon icon-xs icomoon-arrow-right"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Services Section -->
+      <section id="services" class="section section-lg bg-primary">
+        <div class="container">
+          <div class="row row-10 justify-content-lg-between">
+            <div class="col-md-6 col-lg-5">
+              <h2>Sektörel Uzmanlığımız<br>Güvenilir Çözümler!</h2>
+              <p>ALPKAR olarak, sadece önemli olan şeylere odaklanarak iddialı hedeflerinize ulaşmanıza ve yeni yüksekliklere çıkmanıza yardım etmeye çalışıyoruz.</p>
+            </div>
+            <div class="col-md-6 col-lg-5">
+              <p class="small">Deneyimli bir tedarik zinciri uzmanı, net hedefler belirleyerek ve başarı yolundaki eylemlerinizi planlayarak işinizden daha fazlasını elde etmenize kolayca yardımcı olabilir.</p>
+              <p>Profesyonel ve yüksek deneyimli bir ekip olarak, hem sizin hem de ekibiniz için yeni hedeflere doğru rehberlik etmekten memnuniyet duyarız. İşinizin geometrik büyümesini sağlayarak, istediğinizi elde etmek için şirketinizi sınıra kadar zorlayabilirsiniz.</p>
+              <div class="unit unit-horizontal unit-spacing-md align-items-center wow fadeInUp" data-wow-delay=".1s">
+                <div class="unit-left"><img src="images/ALPKARlogoonly.png" alt="ALPKAR" width="80" height="80"/>
+                </div>
+                <div class="unit-body">
+                  <h3 class="h4">ALPKAR Ekibi</h3>
+                  <p class="small mt-2">Endüstriyel tedarik ve lojistik uzmanları</p>
+                </div>
+              </div><a class="btn btn-nero wow fadeInUp" href="#contact" data-wow-delay=".2s">İletişime Geçin</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Services Details Section -->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 col-xl-8">
+              <h2>Sektörel Hizmetlerimiz</h2>
+              <p>Farklı sektörler için özelleştirilmiş çözümler sunuyoruz. Müşterilerimiz sağladığımız rehberlik ve yardımdan memnuniyet duyuyor.</p>
+            </div>
+          </div>
+          <div class="row row-30">
+            <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay="0s">
+              <article class="icon-box shadow-lg">
+                <div class="box-top">
+                  <div class="box-icon"><img src="images/shield_5816290.png" alt="Savunma Sanayi" style="width: 48px; height: 48px; filter: brightness(0) saturate(100%) invert(8%) sepia(10%) saturate(7471%) hue-rotate(152deg) brightness(95%) contrast(101%);"/></div>
+                  <div class="box-header">
+                    <h3 class="h4">Savunma Sanayi</h3>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <p>Yüksek güvenlikli ve kritik operasyonlar için özel lojistik ve tedarik çözümleri sunuyoruz.</p>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+              <article class="icon-box bg-primary">
+                <div class="box-top">
+                  <div class="box-icon"><img src="images/communication_3944356.png" alt="Danışmanlık Hizmetleri" style="width: 48px; height: 48px; filter: brightness(0) saturate(100%) invert(8%) sepia(10%) saturate(7471%) hue-rotate(152deg) brightness(95%) contrast(101%);"/></div>
+                  <div class="box-header">
+                    <h3 class="h4">Danışmanlık Hizmetleri</h3>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <p>Tedarik zinciri iş akışlarını, tedarik stratejilerini ve operasyonel verimliliği optimize ediyoruz.</p>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+              <article class="icon-box bg-aqua-grey context-dark">
+                <div class="box-top">
+                  <div class="box-icon"><img src="images/thread_1771784.png" alt="Tekstil Sektörü" style="width: 48px; height: 48px; filter: brightness(0) saturate(100%) invert(8%) sepia(10%) saturate(7471%) hue-rotate(152deg) brightness(95%) contrast(101%);"/></div>
+                  <div class="box-header">
+                    <h3 class="h4">Tekstil Sektörü</h3>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <p>Tekstil ve konfeksiyon endüstrisinde kapsamlı tedarik, kalite kontrolü ve uluslararası dağıtım desteği.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Logistics Section -->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row row-30 align-items-center">
+            <div class="col-md-8">
+              <h2>Lojistik ve Tedarik Zinciri Çözümlerimiz</h2>
+              <p>İhtiyaçlarınıza uyarlanmış çeşitli lojistik ve tedarik zinciri hizmetleri sunuyoruz.</p>
+            </div>
+            <div class="col-md-4 text-md-end"><a class="btn btn-nero-outline-1" href="#contact">Ücretsiz Danışmanlık</a></div>
+          </div>
+          <div class="row row-20 row-md-40 row-xl-60">
+            <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay="0s">
+              <article class="icon-box-horizontal">
+                <div class="unit unit-spacing-xs">
+                  <div class="unit-left"><span class="novi-icon icon icomoon-truck icon-primary"></span></div>
+                  <div class="unit-body">
+                    <h4>Kargo Taşıma</h4>
+                    <p>Büyük ekipmanlardan günlük kargolara kadar her türlü yükü güvenli şekilde taşıyoruz.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".1s">
+              <article class="icon-box-horizontal">
+                <div class="unit unit-spacing-xs">
+                  <div class="unit-left"><span class="novi-icon icon icomoon-warehouse icon-primary"></span></div>
+                  <div class="unit-body">
+                    <h4>Depolama</h4>
+                    <p>Güvenli ve organize depolama çözümleri ile ürünlerinizi koruyoruz.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".2s">
+              <article class="icon-box-horizontal">
+                <div class="unit unit-spacing-xs">
+                  <div class="unit-left"><span class="novi-icon icon icomoon-globe icon-primary"></span></div>
+                  <div class="unit-body">
+                    <h4>Uluslararası Dağıtım</h4>
+                    <p>Küresel ağımız ile dünya çapında hızlı ve güvenli dağıtım sağlıyoruz.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".3s">
+              <article class="icon-box-horizontal">
+                <div class="unit unit-spacing-xs">
+                  <div class="unit-left"><span class="novi-icon icon icomoon-gps icon-primary"></span></div>
+                  <div class="unit-body">
+                    <h4>Gerçek Zamanlı Takip</h4>
+                    <p>Kargolarınızı gerçek zamanlı olarak takip edebilir, güvenle izleyebilirsiniz.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".4s">
+              <article class="icon-box-horizontal">
+                <div class="unit unit-spacing-xs">
+                  <div class="unit-left"><span class="novi-icon icon icomoon-supply icon-primary"></span></div>
+                  <div class="unit-body">
+                    <h4>Tedarik Zinciri Yönetimi</h4>
+                    <p>Uçtan uca tedarik zinciri koordinasyonu ile operasyonlarınızı optimize ediyoruz.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-md-4 wow fadeInUp" data-wow-delay=".5s">
+              <article class="icon-box-horizontal">
+                <div class="unit unit-spacing-xs">
+                  <div class="unit-left"><span class="novi-icon icon icomoon-custom icon-primary"></span></div>
+                  <div class="unit-body">
+                    <h4>Özel Çözümler</h4>
+                    <p>Kritik ve yüksek değerli projeler için özelleştirilmiş destek sağlıyoruz.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Contact Section -->
+      <section id="contact" class="section section-lg bg-default">
+        <div class="container">
+          <div class="row row-50 justify-content-md-between">
+            <div class="col-md-6">
+              <h2>Her türlü sorunuzu yanıtlamaya hazırız</h2>
+              <p style="max-width: 450px;">Sorununuz hakkında her şeyi anlatın, size yardım etmekten memnuniyet duyarız. Formu doldurun veya tercih ederseniz bize e-posta gönderin.</p>
+              <address class="contact-info">
+                <p class="h4"><strong>Haluk Karadağ:</strong>&nbsp;<a class="link-default" href="tel:+905423448088">+90 542 344 80 88</a></p>
+                <p class="h4"><strong>Ümit Alperen:</strong>&nbsp;<a class="link-default" href="tel:+905075014430">+90 507 501 44 30</a></p>
+                <a class="link-default mt-0 text-decoration-underline" href="mailto:info@alpkar.com">info@alpkar.com</a>
+                <p class="offset-top-5">Çankaya, Ankara<br>
+                  Merkez Ofis
+                </p>
+                <p class="offset-top-5"><strong>Haluk Karadağ</strong><br>
+                  <strong>Ümit Alperen</strong>
+                </p>
+              </address>
+            </div>
+            <div class="col-md-6">
+              <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                <div class="row row-20">
+                  <div class="col-sm-6">
+                    <div class="form-wrap">
+                      <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
+                      <label class="form-label" for="contact-name">Adınız</label>
+              </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-wrap">
+                      <input class="form-input" id="contact-phone" type="text" name="phone" data-constraints="@Numeric">
+                      <label class="form-label" for="contact-phone">Telefon</label>
+              </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-wrap">
+                      <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
+                      <label class="form-label" for="contact-email">E-posta</label>
+              </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-wrap">
+                      <label class="form-label" for="contact-message">Mesajınız</label>
+                      <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
+                  </div>
+                  </div>
+                </div>
+                <div class="group-sm group-middle">
+                  <button class="btn btn-nero" type="submit">Mesaj Gönder</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Footer -->
+      <footer class="section section-lg bg-nero">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 text-center">
+              <p class="rights small"><span>ALPKAR</span><span>&nbsp;&#169;&nbsp;</span><span class="copyright-year"></span><span>.&nbsp;</span><span>Tüm hakları saklıdır.</span></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      // Smooth scroll and active menu highlighting
+      document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.rd-nav-link[href^="#"]');
+        const sections = document.querySelectorAll('section[id]');
+        
+        // Smooth scroll for navigation links
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+              targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+        
+        // Active menu highlighting on scroll
+        window.addEventListener('scroll', function() {
+          let current = '';
+          const scrollPos = window.pageYOffset + 100;
+          
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+              current = section.getAttribute('id');
+            }
+          });
+          
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+              link.classList.add('active');
+            }
+          });
+        });
+        
+        // Products Slider Custom Navigation
+        const productsSlider = document.querySelector('.products-slider');
+        if (productsSlider) {
+          const prevBtn = document.querySelector('.prev-slide');
+          const nextBtn = document.querySelector('.next-slide');
+          
+          if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', function() {
+              const owl = $(productsSlider);
+              owl.trigger('prev.owl.carousel');
+            });
+            
+            nextBtn.addEventListener('click', function() {
+              const owl = $(productsSlider);
+              owl.trigger('next.owl.carousel');
+            });
+          }
+        }
+        
+        // Product card hover effects
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+          });
+          
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+          });
+        });
+        
+        // Initialize product slider with custom settings
+        if (typeof $.fn.owlCarousel !== 'undefined') {
+          $('.products-slider').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            responsive: {
+              0: {
+                items: 1
+              },
+              768: {
+                items: 2
+              },
+              992: {
+                items: 3
+              }
+            },
+            navText: [
+              '<span class="icon icon-xs icomoon-arrow-left"></span>',
+              '<span class="icon icon-xs icomoon-arrow-right"></span>'
+            ]
+          });
+          
+          // Stop autoplay when user interacts with navigation
+          const owl = $('.products-slider');
+          owl.on('click', '.owl-prev, .owl-next', function() {
+            owl.trigger('stop.owl.autoplay');
+          });
+          
+          // Stop autoplay when user clicks custom navigation buttons
+          const prevBtn = document.querySelector('.prev-slide');
+          const nextBtn = document.querySelector('.next-slide');
+          
+          if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', function() {
+              owl.trigger('stop.owl.autoplay');
+            });
+            
+            nextBtn.addEventListener('click', function() {
+              owl.trigger('stop.owl.autoplay');
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
