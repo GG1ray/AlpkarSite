@@ -1,0 +1,161 @@
+//- Image
+	@param {string} name
+mixin img( name, options )
+	-
+		var size = getImageSize( name );
+		if( options && options.retina ) { size[0] = ~~(size[0]/2); size[1] = ~~(size[1]/2); }
+	img( src= procImg( name ), alt='', width= size[0], height= size[1] )&attributes( attributes )
+
+
+//- Loop without indexing mixin
+	@param {number} iterations - number of iterations
+mixin loop( iterations )
+	- for ( var i = 0; i < iterations; i++ )
+		block
+
+
+//- Parallax Section
+	@param {object} obj - parameters storage
+	@param {string} obj.img - image path
+	@param {string} obj.innerClass - content wrapper class
+mixin parallax( obj )
+	section.parallax-container( data-parallax-img= procImg( obj.img ) )&attributes( attributes )
+		.parallax-content( class= obj.innerClass )
+			block
+
+
+//- Main Navigation
+mixin navigation( menu, type )
+	if( !type )
+		ul.rd-navbar-nav&attributes( attributes )
+			each item in menu
+				li.rd-nav-item( class= { active: item.active } )
+					a.rd-nav-link( href= item.link )= item.title
+					if( item.dropdown )
+						+navigation( item.dropdown, 'dropdown' )
+					if( item.megamenu )
+						+navigation( item.megamenu, 'megamenu' )
+
+	else if( type === 'dropdown' )
+		ul.rd-menu.rd-navbar-dropdown
+			each item in menu
+				li.rd-dropdown-item( class= { active: item.active } )
+					a.rd-dropdown-link( href= item.link )= item.title
+					if( item.dropdown )
+						+navigation( item.dropdown, 'dropdown' )
+
+	else if( type === 'megamenu' )
+		ul.rd-menu.rd-navbar-megamenu
+			each item in menu
+				li.rd-megamenu-item
+					if ( item instanceof Array )
+						+navigation( item, 'column' )
+					else
+						+navigation( item, 'block' )
+
+	else if( type === 'column' )
+		each item in menu
+			+navigation( item, 'block' )
+
+	else if( type === 'block' )
+		if (menu.title && menu.link)
+			h5.rd-megamenu-title: a( href= menu.link )= menu.title
+		else if (menu.title)
+			h5.rd-megamenu-title= menu.title
+		if (menu.list)
+			+navigation( menu.list, 'list' )
+
+	else if( type === 'list' )
+		ul.rd-megamenu-list
+			each item in menu
+				li.rd-megamenu-list-item
+					a.rd-megamenu-list-link( href= item.link )= item.title
+
+
+//- Logo
+mixin logo(isWhite)
+	if(isWhite)
+		+img( logo.inverse )
+	else
+		+img( logo.default )
+
+
+//- Copyright
+mixin rights
+	p.rights&attributes( attributes )
+		span &copy;&nbsp; 
+		span.copyright-year
+		span &nbsp;
+		span= logo.name
+		span .&nbsp;
+		a( href='privacy-policy.html' ) Privacy Policy
+
+
+//- Page title
+mixin page-title(title)
+	//- Page title
+	section.section.section-xs.novi-background.bg-primary&attributes(attributes)
+		.container
+			.page-title
+				h1.h2=title
+
+
+mixin table(classes)
+	.table-custom-responsive
+		table.table-custom(class=classes)
+			thead
+				tr
+					th( style='min-width: 140px' ) Column 1
+					th( style='min-width: 140px' ) Column 2
+					th( style='min-width: 140px' ) Column 3
+					th( style='min-width: 140px' ) Column 4
+
+			tbody
+				tr
+					td Item #1
+					td Description
+					td Subtotal
+					td $3.00
+				tr
+					td Item #2
+					td Description
+					td Discount
+					td $3.00
+				tr
+					td Item #3
+					td Description
+					td Shipping
+					td $3.00
+
+				tr
+					td Item #4
+					td Description
+					td Tax
+					td $4.00
+
+			tfoot
+				tr
+					td All Items
+					td Description
+					td Your Total
+					td $13.00
+
+//- Pagination simple
+	@param {array} data - pagination data array
+	@param {object} item - single item object
+	@param {string} item.value - item value
+	@param {string} [item.prev] - set prev button to pagination
+	@param {string} [item.next] - set next button to pagination
+	@param {string} [item.actionClass] - add action class to item
+mixin pag-simple( data )
+	ul.pag.pag-simple&attributes( attributes )
+		each item in data
+			li.pag-simple-item( class= item.actionClass )
+				if (item.prev)
+					a.pag-simple-link.pag-simple-link-prev( class= (item.class ? item.class : ''), href='#' )
+						span.mdi.mdi-arrow-left.novi-icon
+				else if (item.next)
+					a.pag-simple-link.pag-simple-link-next( class= (item.class ? item.class : ''), href='#' )
+						span.mdi.mdi-arrow-right.novi-icon
+				else
+					a.pag-simple-link( class= (item.class ? item.class : ''), href='#' )= item.value

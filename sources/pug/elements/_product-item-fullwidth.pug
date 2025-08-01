@@ -1,0 +1,56 @@
+//- Product item fullwidth
+mixin product-item-fullwidth(obj)
+  - var price = obj.price.current.split('.');
+  - var currentPrice = price[0]
+  - var currentPriceSmall = '.' + (price.length == 2 ? price[1] : '00')
+
+  .product.product-item-fullwidth
+    .product-slider
+      .product-slider-inner
+        //- Owl Carousel
+        .owl-carousel.owl-style-minimal(data-items='1', data-stage-padding='0', data-loop='true', data-margin='30', data-mouse-drag="true", data-dots='true', data-animation-in='fadeIn', data-animation-out='fadeOut')
+          each item in obj.slider
+            .item
+              figure
+                +img(item)
+
+    .product-main
+      if (typeof (obj.badge) !== 'undefined')
+        .product-badge-wrap
+          .badge-custom.product-badge(class=obj.badge.elClass)=obj.badge.text
+      .product-main-inner
+        .product-body
+          p.product-brand=obj.brand
+          h5.product-header: a(href='single-product.html')=obj.header
+          .product-rating
+            ul.list-rating
+              - for(var i = 0; i < obj.rating.count; i++)
+                if (obj.rating.half && (i + 1) == obj.rating.count)
+                  li: span.novi-icon.icon.icon-xxs.material-icons-star_half
+                else
+                  li: span.novi-icon.icon.icon-xxs.material-icons-star
+
+              - for (var i = 0; i < 5 - obj.rating.count; i++)
+                li: span.novi-icon.icon.icon-xxs.material-icons-star_border
+
+            span.fw-light
+              =obj.reviewCount
+              |  customer reviews
+          .product-description
+            p=obj.text
+          a.btn.btn-silver-outline.product-details(href='single-product.html') Details
+
+        .product-aside
+          .product-aside-top
+            p.price-irrelevant=obj.price.irrelevant
+            p.pricing-object.pricing-object-xl.price-current
+              span.small.small-middle $
+              span.price=currentPrice
+              span.small.small-bottom=currentPriceSmall
+          .product-aside-bottom
+            .stepper-wrap
+              p Quantity
+              input(type="number" data-zeros="false" value="1" min="1" max="40")
+            a.btn.btn-icon.btn-icon-left.btn-primary.product-control(href='shop-cart.html')
+              span.novi-icon.icon.icon-sm.fa-shopping-cart
+              span add to cart

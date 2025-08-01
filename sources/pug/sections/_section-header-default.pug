@@ -1,0 +1,41 @@
+header.page-head
+	//- RD Navbar
+	.rd-navbar-wrap
+		nav.rd-navbar.rd-navbar-default(
+		data-layout=              'rd-navbar-fixed',
+		data-sm-layout=           'rd-navbar-fixed',
+		data-md-layout=           'rd-navbar-fixed',
+		data-md-device-layout=    'rd-navbar-fixed',
+		data-lg-layout=           'rd-navbar-static',
+		data-lg-device-layout=    'rd-navbar-fixed',
+		data-xl-layout=           'rd-navbar-static',
+		data-xl-device-layout=    'rd-navbar-static',
+		data-xxl-layout=          'rd-navbar-static',
+		data-xxl-device-layout=   'rd-navbar-static',
+		data-lg-stick-up=         'true',
+		data-xl-stick-up=         'true',
+		data-xxl-stick-up=        'true',
+		data-lg-stick-up-offset=  '60px',
+		data-xl-stick-up-offset=  '60px',
+		data-xxl-stick-up-offset= '60px')
+			.rd-navbar-inner
+				//- RD Navbar Panel
+				.rd-navbar-panel
+					//- RD Navbar Toggle
+					button.rd-navbar-toggle(data-custom-toggle='.rd-navbar-nav-wrap', data-custom-toggle-disable-on-blur='true')
+						span
+
+					//- RD Navbar Brand
+					a.rd-navbar-brand.brand(href='index.html')
+						+logo
+
+
+				.rd-navbar-group.rd-navbar-search-wrap
+					.rd-navbar-nav-wrap
+						.rd-navbar-nav-inner
+							.rd-navbar-btn-wrap
+								a.btn.btn-180.btn-icon.btn-icon-right.btn-nero-outline-1( href='contact-me.html', target='_blank' )
+									span.icon.icon-xs-smaller.icomoon-chat
+									| Contact me
+							+navigation( menu )
+

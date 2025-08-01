@@ -1,0 +1,70 @@
+- var searchTemplate = '<h5 class="search-title"><a target="_top" href="#{href}" class="search-link" > #{title}</a> </h5><p>...#{token}...</p>'
+
+header.page-head
+	//- RD Navbar
+	.rd-navbar-wrap
+		nav.rd-navbar.rd-navbar-corporate-light(
+		data-layout=              'rd-navbar-fixed',
+		data-sm-layout=           'rd-navbar-fixed',
+		data-md-layout=           'rd-navbar-fixed'
+		data-md-device-layout=    'rd-navbar-fixed',
+		data-lg-layout=           'rd-navbar-static',
+		data-lg-device-layout=    'rd-navbar-fixed',
+		data-xl-layout=           'rd-navbar-static',
+		data-xl-device-layout=    'rd-navbar-static',
+		data-xxl-layout=          'rd-navbar-static',
+		data-xxl-device-layout=   'rd-navbar-static',
+		data-lg-stick-up=         'true',
+		data-xl-stick-up=         'true',
+		data-xxl-stick-up=        'true',
+		data-lg-stick-up-offset=  '53px',
+		data-xl-stick-up-offset=  '53px',
+		data-xxl-stick-up-offset= '53px')
+			.rd-navbar-inner
+				.rd-navbar-aside-wrap
+					.rd-navbar-aside
+						.rd-navbar-aside-toggle(data-rd-navbar-toggle='.rd-navbar-aside')
+							span
+						.rd-navbar-aside-content
+							ul.rd-navbar-aside-group.list-units
+								li
+									.unit.unit-horizontal.unit-spacing-xs.align-items-center
+										.unit-left: span.novi-icon.icon.icon-xxs.icon-primary.material-icons-phone
+										.unit-body: a.link-secondary(href='tel:#') +1 (232) 349–8447
+								li
+									.unit.unit-horizontal.unit-spacing-xs.align-items-center
+										.unit-left: span.novi-icon.icon.icon-xxs.icon-primary.fa-envelope-o
+										.unit-body: a.link-secondary(href='mailto:#') info@demolink.org
+
+							.rd-navbar-aside-group
+								ul.list-inline.list-inline-reset
+									li: a.novi-icon.icon.icon-circle.icon-silver-chalice-filled.icon-xxs-smallest.fa.fa-facebook(href='#')
+									li: a.novi-icon.icon.icon-circle.icon-silver-chalice-filled.icon-xxs-smallest.fa.fa-twitter(href='#')
+									li: a.novi-icon.icon.icon-circle.icon-silver-chalice-filled.icon-xxs-smallest.fa.fa-google-plus(href='#')
+
+					//- RD Navbar Search
+					.rd-navbar-search
+						form.rd-search(action="search-results.html", method="GET", data-search-live="rd-search-results-live" )
+							.rd-search-inner
+								.form-wrap
+									label(for="rd-search-form-input" class="form-label") Search...
+									input(class="form-input" id="rd-search-form-input" type="text" name="s" autocomplete="off")
+								button.rd-search-submit(type='submit')
+							#rd-search-results-live.rd-search-results-live
+						button.rd-navbar-search-toggle(data-rd-navbar-toggle='.rd-navbar-search, .rd-navbar-search-wrap' )
+
+				.rd-navbar-group
+					//- RD Navbar Panel
+					.rd-navbar-panel
+						//- RD Navbar Toggle
+						button.rd-navbar-toggle(data-rd-navbar-toggle='.rd-navbar-nav-wrap'): span
+
+						//- RD Navbar Brand
+						a.rd-navbar-brand.brand(href='index.html')
+							+logo
+
+					.rd-navbar-nav-wrap
+						.rd-navbar-nav-inner
+							.rd-navbar-btn-wrap
+								a.btn.btn-smaller.btn-primary-outline( href= links.getTemplate, target='_blank' ) Get Starbis now
+							+navigation( menu )

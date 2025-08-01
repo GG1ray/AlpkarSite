@@ -1,0 +1,18 @@
+//- Quote review
+mixin quote-review(obj)
+  //- Quote review
+  blockquote.quote-review(class=obj.additionalClass)
+    .quote-header
+      cite=obj.cite
+      ul.list-rating
+        - for(var i = 0; i < obj.rating.count; i++)
+          if (obj.rating.half && (i + 1) == obj.rating.count)
+            li: span.novi-icon.icon.icon-xxs.material-icons-star_half
+          else
+            li: span.novi-icon.icon.icon-xxs.material-icons-star
+
+        - for (var i = 0; i < 5 - obj.rating.count; i++)
+          li: span.novi-icon.icon.icon-xxs.material-icons-star_border
+
+    .quote-body
+      q=obj.text

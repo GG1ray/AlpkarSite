@@ -1,0 +1,287 @@
+/** @section Typography */
+
+// Fonts
+// -------------------------
+
+.font-default {
+	font-family: $font-family-base;
+}
+
+@mixin font-size-default {
+	font-size: 16px;
+	line-height: $line-height-base;
+  @include media-breakpoint-up(md) {
+	  font-size: $font-size-body;
+  }
+}
+
+.font-size-default {
+	@include font-size-default;
+}
+
+// Basic Typography
+// -------------------------
+
+#{headings()} {
+	margin-bottom: 0;
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	color: $headings-color;
+
+	> span {
+		display: inline-block;
+		font-size: inherit;
+	}
+
+	a {
+		display: inline;
+		font: inherit;
+		letter-spacing: inherit;
+		transition: .33s all ease;
+
+		&, &:active, &:focus {
+			color: inherit;
+		}
+
+		&:hover {
+			color: $secondary;
+		}
+	}
+
+	> * {
+		margin-right: .25em;
+	}
+}
+
+h1,
+.h1 {
+  font-size: $h1-font-size / 1.75;
+  line-height: $h1-line-height;
+
+  @include media-breakpoint-up(md) {
+    font-size: $h1-font-size / 1.25;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: $h1-font-size;
+  }
+}
+
+h2,
+.h2 {
+  font-size: $h2-font-size / 1.5;
+  line-height: $h2-line-height;
+
+  @include media-breakpoint-up(md) {
+    font-size: $h2-font-size / 1.25;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: $h2-font-size;
+  }
+}
+
+h3,
+.h3 {
+  font-size: $h3-font-size / 1.5;
+  line-height: $h3-line-height;
+
+  @include media-breakpoint-up(md) {
+    font-size: $h3-font-size / 1.25;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: $h3-font-size;
+  }
+}
+
+h4,
+.h4 {
+  font-size: $h4-font-size / 1.15;
+  line-height: $h4-line-height;
+
+  @include media-breakpoint-up(md) {
+    font-size: $h4-font-size;
+  }
+}
+
+h5,
+.h5 {
+  font-size: $h5-font-size;
+  line-height: $h5-line-height;
+}
+
+h6,
+.h6 {
+  font-size: $h6-font-size;
+  line-height: $h6-line-height;
+}
+
+.h7 {
+	font: 500 14px/24px $headings-font-family;
+	text-transform: uppercase;
+	color: $tundora;
+}
+
+%text-bigger {
+	font-size: 18px;
+	font-weight: 300;
+	line-height: (36 / 25);
+
+	@include media-breakpoint-up(md) {
+		font-size: 20px;
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: 25px;
+	}
+}
+
+.text-bigger {
+	@extend %text-bigger;
+}
+
+.text-large {
+	font: 500 38px/42px $font-family-base;
+
+	@include media-breakpoint-up(lg) {
+		font-size: 48px;
+	}
+}
+
+.text-extra-large-bordered {
+	display: inline-block;
+	padding: .07em .11em;
+	font: 500 120px $font-family-base;
+	letter-spacing: -.05em;
+	line-height: .8;
+	border: .075em solid;
+	text-align: center;
+
+	@include media-breakpoint-up(md) {
+		font-size: 220px;
+	}
+
+	@include media-breakpoint-up(xl) {
+		font-size: 272px;
+	}
+}
+
+* + .text-extra-large-bordered {
+	margin-top: 15px;
+}
+
+.big {
+	letter-spacing: .025em;
+}
+
+@include media-breakpoint-up(sm) {
+	.big {
+		font-size: 16px;
+		line-height: 1.5;
+		letter-spacing: 0;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.big {
+		font-size: $font-size-lg;
+		line-height: floor(($font-size-lg * $line-height-lg));
+	}
+}
+
+small,
+.small {
+	font-size: $font-size-sm;
+	line-height: floor(($font-size-sm * $line-height-sm));
+}
+
+code {
+	padding: 5px 7px;
+	font-size: 75%;
+	color: $danger;
+	background-color: $gray-lighter;
+	border-radius: 2px;
+}
+
+em {
+	font-size: inherit;
+	font-style: italic;
+	font-weight: 500;
+	line-height: inherit;
+	color: $gunsmoke;
+}
+
+mark,
+.mark {
+	color: $white;
+	background-color: $primary;
+	padding: .2em .3em;
+}
+
+.text-style-1 {
+	font-family: $font-family-base;
+	color: $dusty-gray;
+}
+
+.text-style-2 {
+	font-style: italic;
+	font-weight: 500;
+}
+
+// Misc
+// -------------------------
+
+// Addresses
+address {
+	margin-top: 0;
+	margin-bottom: 0;
+  .small {
+    line-height: 1.3;
+    &:last-child {
+      display: block;
+      line-height: 1;
+    }
+  }
+}
+
+
+// Colors
+// -------------------------
+
+.text-light-03 { color: rgba($black, .3); }
+
+
+.rights {
+	a {
+		color: inherit;
+	}
+}
+
+.text-spacing-0 {
+	letter-spacing: 0;
+}
+
+.text-spacing-40 {
+	letter-spacing: 0.04em;
+}
+
+.text-spacing-120 {
+	letter-spacing: 0.12em;
+}
+
+.fw-light {
+	font-weight: 300;
+}
+
+.fw-medium {
+	font-weight: 500;
+}
+
+.text-strike {
+	text-decoration: line-through;
+}
+
+.text-underline {
+	text-decoration: underline;
+}

@@ -1,0 +1,19 @@
+//- Product order item
+mixin product-order-item(obj)
+  - var price = obj.price.split('.');
+  - var currentPrice = price[0]
+  - var currentPriceSmall = '.' + (price.length == 2 ? price[1] : '00')
+
+  //- Product order item
+  .product-order-item
+    .product-image
+      +img(obj.img)
+
+    .product-body
+      h6.product-header: a(href='single-product.html')=obj.header
+      p.product-count=obj.count
+      .pricing-object.pricing-object-sm
+        span.small.small-middle $
+        span.price=obj.price.current = currentPrice
+        span.small.small-bottom=currentPriceSmall
+

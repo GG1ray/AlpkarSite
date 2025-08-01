@@ -1,0 +1,247 @@
+/** @section Links */
+
+.link {
+  display: inline-block;
+}
+
+.link-inline {
+  font: inherit;
+  line-height: inherit;
+  text-decoration: underline;
+}
+
+.link-underline {
+  &,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.link-circle {
+  border-radius: 50%;
+
+  .icon,
+  .icon:before {
+    position: static;
+  }
+}
+
+.link-bold {
+  font: 500 16px/22px $font-family-base;
+}
+
+// Link group (icon + link)
+.link-group {
+  white-space: nowrap;
+
+  * {
+    vertical-align: middle;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  span + *,
+  * + span {
+    margin-left: 5px;
+  }
+
+  &.link-group-animated {
+    .icon {
+      position: relative;
+      right: 0;
+      transition: .22s;
+    }
+
+    &:hover {
+      .icon {
+        right: -5px;
+      }
+    }
+  }
+}
+
+.link-group-baseline {
+  * {
+    vertical-align: baseline;
+  }
+}
+
+// Link icon (without text)
+.link-icon {
+  &, * {
+    vertical-align: middle;
+  }
+
+  .icon {
+    margin-right: 5px;
+  }
+}
+
+.link-icon-mod {
+  .icon {
+    position: relative;
+    top: -3px;
+  }
+}
+
+// Link image
+.link-image {
+  img {
+    width: auto;
+    transition: .44s all ease;
+    opacity: .5;
+  }
+
+  &:hover {
+    img {
+      opacity: 1;
+    }
+  }
+}
+
+.link-image-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+
+  * + & {
+    margin-top: 13px;
+  }
+}
+
+// Context
+.ie-10,
+.ie-11,
+.ie-edge {
+  .link-image-wrap {
+    height: 126px;
+  }
+}
+
+// Styles
+.page {
+  .link-primary-inline {
+    color: $primary;
+
+    &.active,
+    &:active,
+    &:focus {
+      color: $dusty-gray;
+    }
+
+    &.hover,
+    &:hover {
+      color: $keppel;
+    }
+  }
+
+  .link-default {
+    @include link($body-color, $secondary);
+  }
+
+  .link-primary {
+    @include link($primary, $secondary);
+  }
+  
+  .link-primary-1 {
+    @include link($primary, $alto);
+  }
+   
+  .link-primary-inverse-v2 {
+    @include link($primary, $white);
+  }
+
+  .link-secondary {
+    @include link($secondary, $nero);
+  }
+
+  .link-tundora {
+    @include link($tundora, $primary);
+  }
+
+  .link-tundora-inverse {
+    @include link($tundora, $white);
+  }
+
+  .link-gray-light {
+    @include link($gray-light, $black);
+  }
+
+  .link-white {
+    @include link($white, $primary);
+  }
+
+  .link-light-2 {
+    @include link($white, $silver-chalice);
+  }
+
+  .link-light-03 {
+    @include link(rgba($gray-light, .3), $primary);
+  }
+
+  .link-black-v2 {
+    @include link(rgba($black, .6), $black);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .link-hover {
+    color: $link-hover-color;
+  }
+
+  .link-active {
+    color: $link-press-color;
+  }
+
+  .link-gray-dark-filled {
+    &,
+    &:active,
+    &:focus {
+      color: $white;
+      background: $gray-dark;
+    }
+
+    &:hover {
+      color: $white;
+      background: $primary;
+    }
+  }
+
+  .link-shop {
+    @include icon-sizing(25px);
+    @include link($gray-darker, $primary);
+  }
+}
+
+%context-dark {
+  .link-primary {
+    @include link($primary, $white);
+  }
+
+  .link-secondary {
+    @include link($secondary, $white);
+  }
+
+  .link-secondary-2 {
+    @include link($secondary, $nero);
+  }
+
+  .link-light-03 {
+    @include link(rgba($white, .3), $primary);
+  }
+
+  .link-tundora {
+    @include link($tundora, $white);
+  }
+}

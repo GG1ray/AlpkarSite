@@ -1,0 +1,36 @@
+extends  ../_skeleton
+
+//- Includes
+
+block variables
+	- pageName = 'Search results'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Privacy Policy
+	section.section.section-lg.bg-default
+		.container
+			.row.row-40.row-md-60.justify-content-lg-center
+				.col-lg-10
+					//- RD Search
+					form.rd-search.rd-search-minimal(action="search-results.html", method="GET", data-search-live-count='15')
+						.form-wrap
+							label(for="rd-search-form-input-1" class="form-label")
+								span.text-mobile Search...
+								span.text-default Start type and hit enter
+							input(class="form-input" id="rd-search-form-input-1" type="text" name="s" autocomplete="off")
+						button.btn-icon-only.btn-icon-only-nero(type='submit')
+							span.novi-icon.icon.icon-sm.material-icons-keyboard_return
+
+				.col-md-11
+					.rd-search-results
+
+
+
+	//- Page Footer
+	include ../sections/_section-footer-default

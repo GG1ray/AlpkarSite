@@ -1,0 +1,18 @@
+extends  ../_skeleton
+include ../elements/_quote-primary
+
+block variables
+	- pageName = 'Client stories'
+
+block page
+	//- Header
+	include ../sections/_section-header-default
+
+	//- Title
+	+page-title(pageName)
+
+	//- Testimonials
+	include ../sections/_section-testimonials
+
+	//- Footer
+	include ../sections/_section-footer-default

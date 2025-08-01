@@ -1,0 +1,158 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Forms'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Forms
+	section.section.section-md.bg-default
+		.container
+			.row.text-center.text-md-start
+				//- Login Form
+				.col-md-7.col-lg-5.col-xl-4
+					h3.text-center Login Form
+
+					//- Block shadow
+					.block-shadow
+						.block-inner
+							p.h7 Login to your account
+							span.novi-icon.icon.icon-xl.icon-black.material-icons-lock_open.block-icon
+
+						//- RD Mailform
+						form.rd-mailform.form-modern.form-darker.form-disabled
+							.block-inner
+								.form-wrap
+									input#login-form-login.form-input(type="text" name="login" data-constraints="@Required")
+									label.form-label(for="login-form-login") Login
+								.form-wrap
+									input#login-form-password.form-input(type="password" name="pass" data-constraints="@Required")
+									label.form-label(for="login-form-password") Password
+								.form-wrap
+									a.small(href='#') Forgot your password?
+							button(type="submit").btn.btn-primary.btn-round-bottom.btn-block Sign in
+
+					.group-inline.text-center
+						span Haven’t an account?
+						a(href='registration.html') Sign up here.
+
+	//- Feedback Form
+	section.section.section-md.bg-gray-lighter
+		.container
+			.row
+				.col-lg-9.col-xl-7
+					h3.text-center Feedback Form
+					form.rd-mailform.form-modern(data-form-output="form-output-global", data-form-type='order', method='post', action='bat/rd-mailform.php')
+						.row.row-seven.row-30
+							.col-md-3
+								.form-wrap
+									input#appointment-name.form-input(type="text" name="name" data-constraints="@Required")
+									label.form-label(for="appointment-name") Name
+							.col-md-4
+								.form-wrap
+									input#appointment-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+									label.form-label(for="appointment-email") Email
+							.col-md-3
+								.form-wrap
+									input#appointment-date.form-input(type="text" name="date" data-constraints="@Required", data-time-picker='date')
+									label.form-label(for="appointment-date") Date
+							.col-md-4
+								.form-wrap
+									input#appointment-time.form-input(type="text" name="time" data-constraints="@Required", data-time-picker='time')
+									label.form-label(for="appointment-time") Time Interval
+							.col-sm-7
+								.form-wrap
+									.textarea-lined-wrap
+										textarea#appointment-message.form-input(name="message" data-constraints="@Required")
+										label.form-label(for="appointment-message") Message
+
+							.col-7
+								.row.row-seven.row-15
+									.col-4.col-md-5: button(type="submit").btn.btn-nero.btn-block Send
+									.col-3.col-md-2: button(type="reset").btn.btn-nero-outline-1.btn-block Reset
+
+
+	//- Feedback Form 2
+	section.section.section-md.bg-default
+		.container
+			.row
+				.col-lg-9.col-xl-6
+					h3.text-center Feedback Form 2
+					//- RD Mailform
+					form.rd-mailform(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+						.row.row-narrow.row-30
+							.col-md-6
+								.form-wrap
+									input#feedback-2-first-name.form-input(type="text" name="first-name" data-constraints="@Required")
+									label.form-label(for="feedback-2-first-name") First Name
+							.col-md-6
+								.form-wrap
+									input#feedback-2-last-name.form-input(type="text" name="last-name" data-constraints="@Required")
+									label.form-label(for="feedback-2-last-name") Last Name
+							.col-md-6
+								.form-wrap
+									input#feedback-2-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+									label.form-label(for="feedback-2-email") Email
+							.col-md-6
+								.form-wrap
+									input#feedback-2-phone.form-input(type="text" name="phone" data-constraints="@Numeric @Required")
+									label.form-label(for="feedback-2-phone") Phone
+							.col-sm-12
+								.form-wrap
+									textarea#feedback-2-message.form-input(name="message" data-constraints="@Required")
+									label.form-label(for="feedback-2-message") Message
+							.col-sm-12: .row: .col-md-6
+								button(type="submit").btn.btn-primary.btn-block Send
+
+
+	//- Newsletter
+	section.section.section-md.bg-gray-lighter
+		.container
+			.row
+				.col-md-6.col-lg-5.col-xl-4
+					h3.text-center Newsletter
+					//- RD Mailform
+					form.rd-mailform.form-modern(data-form-output="form-output-global", data-form-type='subscribe', method='post', action='bat/rd-mailform.php')
+						.form-wrap
+							input#contact-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+							label.form-label(for="contact-email") Email
+						button(type="submit").btn.btn-nero.btn-block Subscribe
+
+
+	//- Mailchimp
+	section.section.section-md.bg-default
+		.container
+			.row
+				.col-md-6.col-lg-5.col-xl-4
+					h3.text-center MailChimp
+					// Mailchimp
+					form.rd-form.mailchimp-mailform.form-modern(data-form-output='form-output-global' action='https://templatemonster.us1.list-manage.com/subscribe/post?u=1e39a6d114a4cc130a4edbe43&id=9fc9ef194a' method='post')
+						.form-wrap.form-wrap_icon.linear-icon-envelope
+							label.form-label(for='mailchimp-email') Enter your e-mail
+							input#mailchimp-email.form-input(type='email' name='email' data-constraints='@Email @Required')
+
+						button.btn.btn-primary.btn-block(type='submit') Subscribe
+
+
+	//- Campaign monitor
+	section.section.section-md.bg-gray-lighter
+		.container
+			.row
+				.col-md-6.col-lg-5.col-xl-4
+					h3.text-center Campaign Monitor
+					//- RD Mailform
+					form.rd-form.campaign-mailform.form-modern(data-form-output='form-output-global' action='https://templatermonster.createsend.com/t/j/s/zjjikd/' method='post')
+						.form-wrap.form-wrap_icon.linear-icon-envelope
+							label.form-label(for='campaign-email') Enter your e-mail
+							input#campaign-email.form-input(type='email' name='cm-zjjikd-zjjikd' data-constraints='@Email @Required')
+
+						button.btn.btn-nero.btn-block(type='submit') Subscribe
+
+
+	//- Page Footer
+	include ../sections/_section-footer-default

@@ -1,0 +1,79 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_post-classic-minimal
+
+block variables
+	- pageName = 'Blog'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title('Blog')
+
+	//- Line blog
+	section.section.section-lg.bg-default
+		.container
+			.row.justify-content-md-center
+				.col-xl-8
+					dl.blog-timeline
+						dt 2023
+						dd
+							+post-classic-minimal({
+								header: 'The ultimate guide to time management',
+								text: [
+									'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec venenatis elit, sed vehicula sapien. Praesent facilisis varius imperdiet. Ut et ligula quis mi viverra sodales. Vivamus lectus magna, faucibus vel ipsum. Proin iaculis, diam et placerat lacinia, odio nisl congue tellus, sed placerat nunc neque id urna. Phasellus nec massa purus.',
+								],
+								tags: ["Business", "Blog"],
+								user: 'John Adams',
+								time: ['2023-06-17', 'Jun 17'],
+								media: {
+									type: "image",
+									data: 'blog-line-1-620x464'
+								}
+							})
+
+							+post-classic-minimal({
+								header: 'Find more time in your day by conducting a simple time audit',
+								text: ["Praesent facilisis varius imperdiet. Ut et ligula quis mi viverra sodales. Vivamus lectus magna, faucibus vel ipsum. Proin iaculis, diam et placerat lacinia, odio nisl congue tellus, sed placerat nunc neque id urna. Phasellus nec massa purus."],
+								tags: ["Business", "Blog"],
+								user: 'John Adams',
+								time: ['2023-05-23', 'May 23']
+							})
+
+							+post-classic-minimal({
+								header: 'How to get more out of your business',
+								text: ['Donec nec venenatis elit, sed vehicula sapien. Praesent facilisis varius imperdiet. Ut et ligula quis mi viverra sodales. Vivamus lectus magna, faucibus vel ipsum. Proin iaculis, diam et placerat lacinia, odio nisl congue tellus, sed placerat nunc neque id urna. Phasellus nec massa purus.'],
+								tags: ["Business", "Blog"],
+								user: 'John Adams',
+								time: ['2023-04-14', 'Apr 14'],
+								media: {
+									type: "image",
+									data: 'blog-line-2-620x464'
+								}
+							})
+
+							+post-classic-minimal({
+								header: '5 steps to increasing your effectiveness',
+								text: ['Praesent facilisis varius imperdiet. Ut et ligula quis mi viverra sodales. Vivamus lectus magna, faucibus vel ipsum. Proin iaculis, diMauris lorem massa, gravida ac justo at, rutrum accumsan sem. In ornare bibendum faucibus. Suspendisse tincidunt diam ut sem cursus, vel sodales nisl mollis.'],
+								tags: ["Business", "Blog"],
+								user: 'John Adams',
+								time: ['2023-03-02', 'Mar 2']
+							})
+
+				+pag-simple([
+					{ prev: true, class: 'inactive' },
+					{ value: '1', actionClass: 'active' },
+					{ value: '2' },
+					{ value: '3' },
+					{ value: '4' },
+					{ value: '...', class: 'inactive' },
+					{ value: '7' },
+					{ next: true }
+				])
+
+
+	//- Page Footer
+	include ../sections/_section-footer-default

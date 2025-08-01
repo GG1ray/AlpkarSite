@@ -1,0 +1,33 @@
+/*
+* Fullwidth Layout
+*/
+
+.rd-navbar-fullwidth {
+  display: block;
+  text-align: center;
+
+  // RD Navbar Panel
+  .rd-navbar-panel {
+  }
+
+  // RD Navbar nav wrap
+  .rd-navbar-nav-wrap {
+
+  }
+
+  // RD Navbar Nav
+  .rd-navbar-nav {
+    width: 100%;
+
+    > li + li {
+      margin-left: $navbar-fullwidth-nav-indent;
+    }
+  }
+
+  // RD Navbar States
+  &.rd-navbar--is-stuck {
+    .rd-navbar-panel {
+      display: none;
+    }
+  }
+}

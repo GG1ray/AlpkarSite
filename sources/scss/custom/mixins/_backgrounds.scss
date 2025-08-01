@@ -1,0 +1,16 @@
+//
+// Gradient background
+// --------------------------------------------------
+
+@mixin bg-variant-custom($color) {
+  background-color: $color;
+  &:not([style*="background-"]) + &:not([style*="background-"]) { padding-top: 0; }
+}
+
+@mixin bg-rainbow {
+  background: rgb(84,160,210);
+  background: -moz-linear-gradient(left,  rgba(84,160,210,1) 0%, rgba(81,84,177,1) 12%, rgba(81,30,125,1) 21%, rgba(103,25,85,1) 37%, rgba(204,33,25,1) 53%, rgba(245,119,19,1) 65%, rgba(248,223,104,1) 83%, rgba(92,241,245,1) 100%);
+  background: -webkit-linear-gradient(left,  rgba(84,160,210,1) 0%,rgba(81,84,177,1) 12%,rgba(81,30,125,1) 21%,rgba(103,25,85,1) 37%,rgba(204,33,25,1) 53%,rgba(245,119,19,1) 65%,rgba(248,223,104,1) 83%,rgba(92,241,245,1) 100%);
+  background: linear-gradient(to right,  rgba(84,160,210,1) 0%,rgba(81,84,177,1) 12%,rgba(81,30,125,1) 21%,rgba(103,25,85,1) 37%,rgba(204,33,25,1) 53%,rgba(245,119,19,1) 65%,rgba(248,223,104,1) 83%,rgba(92,241,245,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54a0d2', endColorstr='#5cf1f5',GradientType=1 );
+}

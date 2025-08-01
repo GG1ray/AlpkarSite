@@ -1,0 +1,34 @@
+//- Product item default
+mixin product-item-default(obj)
+  - var price = obj.price.current.split('.');
+  - var currentPrice = price[0]
+  - var currentPriceSmall = '.' + (price.length == 2 ? price[1] : '00')
+
+  .product.product-item-default
+    .product-slider
+      .product-slider-inner
+        //- Owl Carousel
+        .owl-carousel.owl-style-minimal(data-autoplay='true', data-items='1', data-stage-padding='0', data-loop='true', data-margin='30', data-mouse-drag="true", data-dots='true', data-animation-in='fadeIn', data-animation-out='fadeOut')
+          each item in obj.slider
+            .item
+              figure
+                +img(item)
+
+    if (typeof (obj.badge) !== 'undefined')
+      .product-badge-wrap(class=obj.badge.positionClass)
+        .badge-custom.product-badge(class=obj.badge.elClass)=obj.badge.text
+
+    .product-main
+      h6.product-header: a(href='single-product.html')=obj.header
+      p.product-brand=obj.brand
+    .product-footer
+      .product-footer-front.pricing-wrap
+        p.price-irrelevant=obj.price.irrelevant
+        p.pricing-object.pricing-object-sm.price-current
+          span.small.small-middle $
+          span.price=obj.price.current=currentPrice
+          span.small.small-bottom=currentPriceSmall
+      .product-footer-behind
+        a.btn.btn-icon.btn-icon-left.btn-primary.product-control(href='shop-cart.html')
+          span.novi-icon.icon.icon-sm.fa-shopping-cart
+          span Add to cart

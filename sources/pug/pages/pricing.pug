@@ -1,0 +1,16 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Prices'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title('Prices')
+
+	include ../sections/_section-pricing
+
+	//- Page Footer
+	include ../sections/_section-footer-default

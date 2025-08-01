@@ -1,0 +1,42 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_icon-box-horizontal
+
+block variables
+	- pageName = 'Coaching'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	include ../sections/_section-services
+
+	section.section.section-lg.bg-primary.position-relative.overflow-hidden
+		.container
+			.row.row-40.justify-content-md-end
+				.col-md-6.col-xl-5.position-relative.z-1
+					h2 Working together#[br] for your better life!
+					p.small Nullam eu felis congue, finibus urna vulputate, vehicula diam. In vitae massa ut odio mollis cursus. Sed iaculis cursus odio, sed porttitor quam vulputate eget.
+					p Etiam quis justo vel leo pretium facilisis ut a neque. Vivamus sagittis tortor et sem tincidunt, vitae tincidunt turpis posuere. Suspendisse euismod neque vel lorem posuere, nec interdum aliquam. Etiam quis justo vel leo pretium.
+					h3.h4.offset-xl-top-55 John Adams
+					p.mt-2.small.mt-0 Business coach, founder of Lead Planner
+					a.btn.btn-nero.offset-xl-top-80(href='about-me.html') More about me
+			+img('img-02-950x920.png').img-mod-2
+
+	include ../sections/_section-brands
+	include ../sections/_divider
+
+	section.section.section-lg.bg-default
+		.container
+			.row
+				.col-md-10.col-xl-8.col-xxl-7
+					h2 Let me suggest the plan that's right for your business
+			.row.justify-content-md-center
+				.col-lg-10.col-xl-12
+					include ../includes/_pricing-tables-range
+
+	include ../sections/_section-footer-default

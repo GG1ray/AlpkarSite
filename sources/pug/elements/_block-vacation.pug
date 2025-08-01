@@ -1,0 +1,16 @@
+//- Block vacation
+mixin block-vacation(obj)
+  //- Block vacation
+  a.block-vacation(href='#')
+    h5=obj.header
+    .block-meta
+      ul.list-objects-inline
+        li
+          span.novi-icon.icon.icon-xs-smaller.icon-primary.material-icons-location_on
+          span=obj.location
+        li
+          span.novi-icon.icon.icon-xs-smaller.icon-primary.material-icons-av_timer
+          span=obj.employment
+        li
+          span.novi-icon.icon.icon-xs-smaller.icon-primary.mdi.mdi-calendar
+          time(datetime=obj.time[0])=obj.time[1]

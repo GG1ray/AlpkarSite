@@ -1,0 +1,12 @@
+//- Icon box
+mixin icon-box(obj)
+  //- Icon box
+  article.icon-box(class=obj.mod)&attributes(attributes)
+    .box-top
+      .box-icon
+        span.icon(class=obj.icon)
+      .box-header
+        h3.h4: a(href='about-me.html')=obj.header
+    .box-body
+      p=obj.text
+

@@ -1,0 +1,140 @@
+/** @section Tables */
+
+$table-cell-padding:            17px 25px 18px;
+$table-condensed-cell-padding:  5px;
+
+$table-bg:                      transparent;
+$table-header-bg:               $whisper;
+$table-bg-accent:               $whisper;
+$table-bg-hover:                $whisper;
+$table-bg-active:               $table-bg-hover;
+$table-border-color:            #d9d9d9;
+
+.table-custom {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0;
+  color: $secondary;
+
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        line-height: $line-height-base;
+        vertical-align: top;
+        border-top: 0;
+      }
+    }
+  }
+
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-cell-padding;
+        line-height: $line-height-base;
+        vertical-align: top;
+        border-bottom: 1px solid $table-border-color;
+      }
+    }
+  }
+
+  > thead > tr > th {
+    font-family: $font-family-base;
+    font-size: 16px;
+    font-weight:500;
+    padding: 26px 25px;
+    vertical-align: bottom;
+    background: $table-header-bg;
+    border-bottom: 0;
+
+    // Medium ≥768px
+    @include media-breakpoint-up(md) {
+      padding: 34px 25px 29px;
+    }
+  }
+
+  > tfoot > tr > td {
+    font-weight: 500;
+  }
+
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 0;
+  }
+
+  // Nesting
+  .table {
+    background-color: $body-bg;
+  } 
+}
+
+
+.table-custom-bordered {
+  border: 1px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+.table-custom-primary {
+  thead > tr > th {
+    color: $white;
+    background: $primary;
+  }
+}
+
+.table-custom-striped {
+  > tbody > tr:nth-of-type(even) {
+    background-color: $table-bg-accent;
+  }
+
+  > tbody > tr > td {
+    border-bottom: 0;
+  }
+}
+
+//
+// Table Custom Additional
+//
+.table-custom-responsive {
+  @include media-breakpoint-down(lg) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
+
+    // Prevent double border on horizontal scroll due to use of `display: block;`
+    &.table-bordered {
+      border: 0;
+    }
+  }
+}

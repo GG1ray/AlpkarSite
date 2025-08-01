@@ -1,0 +1,51 @@
+/** @section Snackbars */
+
+
+// Snackbars
+// -------------------------
+
+.snackbars {
+  max-width: 280px;
+  padding:  9px 16px;
+  margin-left: auto;
+  margin-right: auto;
+  color: $white;
+  text-align: left;
+  background: lighten($black, 9%);
+  box-shadow: 0 0 1px rgba( $white, .2 );
+  border-radius: $border-radius;
+
+  .icon-xxs {
+    position: relative;
+    top: 2px;
+    font-size: 20px;
+    vertical-align: baseline;
+  }
+
+  // padding on text
+  p span:last-child {
+    padding-left: 14px;
+  }
+
+  // snackbar icon on the left side
+  &-left {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  // snackbar link or button on the right side
+  &-right {
+    display: inline-block;
+    float: right;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    max-width: 380px;
+    padding:  14px 17px;
+  }
+}

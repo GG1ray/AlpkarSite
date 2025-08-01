@@ -1,0 +1,31 @@
+/** @section Badge */
+
+.badge-custom {
+  padding: 4px 5px 3px;
+  font-size: 70%;
+  text-transform: uppercase;
+  border-radius: 3px;
+} 
+
+.mac {
+  .badge-custom {
+    padding-top: .4em;
+  }
+}
+
+.badge-custom { 
+  &.badge-primary {
+    color: $white;
+  }
+  &.badge-danger { 
+    color: $white;
+    background: $danger;
+    box-shadow: inset 0 8px 12px rgba($black, .25);
+  }
+
+  &.badge-info {
+    color: $white; 
+    background: $info;
+    box-shadow: inset 0 8px 12px rgba($black, .25);
+  }
+}

@@ -1,0 +1,376 @@
+/*
+* Fixed Layout
+*/
+.rd-navbar-fixed {
+  display: block;
+
+  // RD Navbar Brand
+  .rd-navbar-brand {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    z-index: 1;
+
+
+    .brand-slogan {
+      display: none;
+    }
+
+    img {
+      max-width: 120px;
+      height: auto;
+    }
+  }
+
+  // RD Navbar Panel
+  .rd-navbar-panel {
+		display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    padding: ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) / 2;
+    height: $rd-navbar-fixed-height;
+    color: $rd-navbar-fixed-panel-color;
+    z-index: 999;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      box-shadow: $rd-navbar-fixed-shadow;
+      border-bottom: $rd-navbar-fixed-border;
+      background: $rd-navbar-fixed-panel-background;
+    }
+  }
+
+  // RD Navbar Toggle
+  .rd-navbar-toggle {
+    display: inline-block;
+  }
+
+  .rd-navbar-nav-wrap {
+    position: fixed;
+    top: -56px;
+    left: 0;
+    bottom: -56px;
+    z-index: 998;
+    width: 270px;
+    padding: 112px 0 56px;
+    color: $white;
+    background: $rd-navbar-background;
+    border-right: $rd-navbar-fixed-border;
+    @extend %rd-navbar-transition;
+    transform: translateX(-105%);
+    pointer-events: none;
+    overflow: hidden;
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  .rd-navbar-nav-inner {
+    position: relative;
+    z-index: 100000;
+    height: 100%;
+    padding: 10px 0 20px;
+    pointer-events: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba($primary, .6);
+      border: none;
+      border-radius: 0;
+      opacity: .2;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba($primary, .3);
+      border: none;
+      border-radius: 0;
+    }
+  }
+
+  .rd-navbar-nav {
+    display: block;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: left;
+
+    li {
+      > a {
+        display: block;
+        font-size: 16px;
+        padding: 14px 56px 14px 16px;
+        color: $rd-navbar-fixed-panel-item-color;
+      }
+
+      &:hover,
+      &.focus,
+      &.active,
+      &.opened {
+        > a, > a:hover {
+          color: $rd-navbar-fixed-panel-item-hover-color;
+          background: $rd-navbar-fixed-panel-item-hover-background;
+        }
+        > .rd-navbar-submenu-toggle {
+          &::after {
+            color: $rd-navbar-fixed-submenu-toggle-focus-color;
+          }
+        }
+      }
+    }
+
+    > li + li {
+      margin-top: 4px;
+    }
+  }
+
+  .badge-custom {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    margin: 0 0 0 8px;
+
+    font-size: 60%;
+    line-height: 1;
+    padding: 6px .5em 5px;
+    vertical-align: middle;
+  }
+
+  .iphone &,
+  .ipad &,
+  .mac & {
+    .badge-custom {
+      padding: 6px .5em 4px;
+    }
+  }
+
+  .rd-navbar-dropdown,
+  .rd-megamenu-list {
+    > li > a {
+      font-family: $font-family-base;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+  }
+
+  .rd-navbar-megamenu {
+    .rd-megamenu-title {
+      padding: 0 15px;
+    }
+
+    > li {
+      padding-top: 15px;
+    }
+
+    // Offsets
+    * + .rd-megamenu-title {
+      margin-top: 15px;
+    }
+
+    * + .rd-megamenu-list {
+      margin-top: 10px;
+    }
+  }
+
+  // RD Navbar Nav Dropdown
+  .rd-navbar-dropdown,
+  .rd-navbar-megamenu {
+    display: none;
+  }
+
+  .rd-navbar-submenu {
+    position: relative;
+    @extend %rd-navbar-transition;
+
+    li > a {
+      font-size: 14px;
+      padding-left: 30px;
+    }
+
+    .rd-navbar-dropdown li li > a,
+    .rd-navbar-megamenu ul li li > a {
+      padding-left: 48px;
+    }
+
+    &.opened {
+      > .rd-navbar-dropdown,
+      > .rd-navbar-megamenu {
+        display: block;
+      }
+    }
+  }
+
+  // RD Navbar Search
+  .rd-navbar-search,
+  .rd-navbar-btn-wrap {
+    display: block;
+    padding: 16px 5px;
+  }
+
+  .rd-search {
+    .rd-search-results-live {
+      display: none;
+    }
+  }
+
+  .rd-navbar-btn-wrap {
+    padding: 16px 10px;
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .rd-navbar-nav {
+    li {
+      .rd-navbar-dropdown,
+      .rd-navbar-megamenu {
+        transition: opacity 0.3s, height 0.4s ease;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+      }
+
+      &.opened {
+        > .rd-navbar-dropdown,
+        > .rd-navbar-megamenu {
+          padding: 3px 0;
+          opacity: 1;
+          height: auto;
+        }
+        > .rd-navbar-submenu-toggle {
+          color: $rd-navbar-fixed-submenu-toggle-focus-color;
+          &::after {
+            transform: rotate(180deg);
+            margin-top: -24px;
+          }
+        }
+      }
+
+    }
+  }
+
+  // RD Navbar Submenu Toggle
+  .rd-navbar-submenu-toggle {
+    &::after {
+      content: '\f107';
+      position: absolute;
+      top: 24px;
+      right: 0;
+      margin-top: -22px;
+      width: 65px;
+      height: 44px;
+      font: 400 15px "FontAwesome";
+      line-height: 42px;
+      text-align: center;
+      transition: 0.4s all ease;
+      z-index: 2;
+      cursor: pointer;
+      color: $rd-navbar-fixed-submenu-toggle-color;
+      will-change: transform;
+    }
+  }
+
+  // Hybrid Styles
+  .rd-navbar-collapse,
+  .rd-navbar-search-toggle {
+    position: fixed;
+    top: ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) / 2;
+    height: $rd-navbar-fixed-line-height;
+    z-index: 1000;
+
+    background-color: transparent;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // RD Navbar aside
+  .rd-navbar-aside {
+    &, .rd-navbar-aside-toggle {
+      position: fixed;
+      z-index: 1000;
+      display: block;
+      height: $rd-navbar-min-line-height;
+    }
+
+    top: 0;
+    right: 0;
+    width: 100%;
+
+    &.active {
+      .rd-navbar-aside-content {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  .rd-navbar-aside-toggle {
+    top: ($rd-navbar-fixed-height - $rd-navbar-min-line-height) / 2;
+    right: ($rd-navbar-fixed-height - $rd-navbar-min-line-height) / 2;
+    width: $rd-navbar-min-line-height;
+    @include make-toggle(
+        'collapse-preset-1',
+        $rd-navbar-min-line-height,
+        $rd-navbar-min-font-size,
+        $rd-navbar-fixed-toggle-color
+    );
+  }
+
+  .rd-navbar-aside-content {
+    position: absolute;
+    top: calc(100% + 7px);
+    right: 0;
+    width: calc(100% + 2px);
+    padding: 20px 35px;
+    margin: 0 -1px;
+    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: .23s all ease-out;
+
+    @include media-breakpoint-up(md) {
+      width: auto;
+    }
+  }
+
+  // RD Navbar States
+  &.rd-navbar--is-clone {
+    display: none;
+  }
+
+  .rd-navbar-fixed--visible {
+    display: block;
+  }
+
+  .rd-navbar-fixed--hidden {
+    display: none;
+  }
+}
+
+html.rd-navbar-fixed-linked {
+  .page {
+    padding-top: 56px;
+  }
+}

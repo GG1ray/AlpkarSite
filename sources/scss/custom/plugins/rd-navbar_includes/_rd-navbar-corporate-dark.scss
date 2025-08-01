@@ -1,0 +1,304 @@
+//
+// RD Navbar Corporate dark
+// --------------------------------------------------
+.rd-navbar-corporate-dark {
+
+  // RD Navbar Brand
+  .rd-navbar-brand {
+  }
+
+  // RD Navbar Nav
+  .rd-navbar-nav {
+    > li > a {
+      font: 400 14px $font-family-base;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+  }
+
+  // RD Navbar search
+  .rd-navbar-search {
+    .form-input,
+    .form-label {
+      font-size: 16px;
+      line-height: 1.3;
+      color: $rd-navbar-input-color;
+    }
+
+    .form-label {
+      top: 18px;
+      left: 22px;
+    }
+
+    .form-input {
+      padding: 7px 45px 10px 22px;
+      height: auto;
+      min-height: 20px;
+      border: $rd-navbar-input-border;
+      border-radius: $rd-navbar-input-border-radius;
+    }
+
+    .rd-navbar-search-toggle,
+    .rd-search-submit {
+      text-align: center;
+      color: $black;
+
+      &:before {
+        content: "\f43b";
+        position: static;
+        display: inline-block;
+        font-family: 'Material Design Icons';
+        font-size: 20px;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .rd-navbar-search-toggle {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  // RD Navbar aside
+  .rd-navbar-aside {
+    width: 100%;
+    @include font-size-default;
+  }
+
+  // Mobile & tablet variant
+  &.rd-navbar-fixed {
+    // RD Navbar Aside
+    .rd-navbar-aside {
+      &-content {
+        border-bottom: 1px solid $black;
+        border-left: 1px solid $black;
+        background: $cod-gray;
+      }
+
+      .list-units {
+        > li + li {
+          margin-top: 10px;
+        }
+      }
+      * + .rd-navbar-aside-group {
+        margin-top: 14px;
+      }
+
+      @include media-breakpoint-up(sm) {
+        &-content {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  // Desktop variant
+  &.rd-navbar-static {
+    .rd-navbar-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    // RD Navbar Inner
+    .rd-navbar-inner {
+      padding: 0;
+      font-size: 0;
+      line-height: 0;
+    }
+
+    // RD Navbar Panel
+    .rd-navbar-panel {
+      min-width: 100px;
+    }
+
+    // RD Navbar aside
+    .rd-navbar-aside {
+      position: relative;
+      z-index: 2;
+      background: $cod-gray;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: inherit;
+        width: 102vw;
+        z-index: -1;
+      }
+
+      .rd-navbar-aside-content,
+      .rd-navbar-aside-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .rd-navbar-aside-content {
+        padding: 12px 15px;
+        margin-bottom: -5px;
+        transform: translateY(-5px);
+        justify-content: space-between;
+      }
+
+      .rd-navbar-aside-group {
+        flex-shrink: 0;
+
+        &:first-child {
+          margin-top: 7px;
+          flex-grow: 8;
+          justify-content: flex-start;
+          margin-right: 20px;
+        }
+
+        &:last-child {
+          margin-top: 5px;
+          justify-content: flex-end;
+          flex-grow: 1;
+        }
+      }
+
+      .list-units {
+        li {
+          display: inline-block;
+          margin-top: 0;
+
+          &:not(:last-child) {
+            margin-right: 25px;
+          }
+        }
+      }
+    }
+
+    // RD Navbar Group
+    .rd-navbar-group {
+      padding: 35px 15px;
+      @extend %rd-navbar-transition;
+      justify-content: space-between;
+    }
+
+    // RD Navbar Nav Inner
+    .rd-navbar-nav-inner {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    // RD Navbar Nav
+    .rd-navbar-nav {
+      margin-right: 30px;
+
+      > li {
+        padding: 4px 6px;
+
+        > a {
+          font-size: 13px;
+        }
+
+        &.rd-navbar-submenu {
+          margin-right: -24px;
+        }
+
+        > .rd-navbar-submenu-toggle {
+          display: inline-block;
+        }
+      }
+
+      > li + li {
+        margin-left: 30px;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      .rd-navbar-nav {
+        > li {
+          padding: 4px 10px;
+        }
+
+        > li > a {
+          font-size: 14px;
+        }
+
+        > li + li {
+          margin-left: 28px;
+        }
+      }
+
+      .rd-navbar-aside {
+        .list-units {
+          li {
+            &:not(:last-child) {
+              margin-right: 50px;
+            }
+          }
+        }
+      }
+    }
+
+    // RD Navbar Search
+    .rd-navbar-search {
+      position: static;
+      z-index: 2;
+
+      .rd-search {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .rd-search-submit {
+        width: 39px;
+        height: 39px;
+        line-height: 38px;
+      }
+    }
+
+    .rd-navbar-search-wrap.active .rd-navbar-nav-wrap {
+      position: relative;
+    }
+
+    .rd-navbar-search.active + .rd-navbar-nav {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    // RD Navbar Toggle
+    .rd-navbar-toggle {
+      .rd-navbar-nav {
+        > li {
+          .rd-navbar-toggle {
+            display: none;
+          }
+        }
+      }
+    }
+
+    // RD Navbar states
+    &.rd-navbar--is-clone,
+    &.rd-navbar--is-stuck {
+      .rd-navbar-aside {
+        display: none;
+      }
+      // RD Navbar Group
+      .rd-navbar-group {
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+    }
+  }
+}

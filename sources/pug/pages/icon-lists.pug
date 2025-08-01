@@ -1,0 +1,139 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_icon-box
+include ../elements/_icon-box-vertical
+include ../elements/_icon-box-horizontal
+
+block variables
+	- pageName = 'Icon lists'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Lists
+	section.section.section-md.bg-default
+		.container
+			h3 Lists
+			.row.row-40
+				.col-sm-6.col-md-4.col-xl-3
+					h5 Unordered List
+					ul.list-marked
+						li Responsive & Retina
+						li Extensive docs
+						li Powerful Navigation
+						li Video Backgrounds
+						li Social Plugins
+
+				.col-sm-6.col-md-4.col-xl-3
+					h5 Ordered List
+					ul.list-ordered
+						li Responsive & Retina
+						li Extensive docs
+						li Powerful Navigation
+						li Video Backgrounds
+						li Social Plugins
+
+
+	//- Icon Left List
+	section.section.section-md.bg-default
+		.container
+			h3 Icon Left List
+			.row
+				.col-lg-9.col-xl-12
+					.row.row-40
+						.col-md-6.col-xl-3
+							+icon-box-left({
+								icon: ['icon-lg-variant-1', 'material-icons-phonelink'],
+								header: 'Edge Technologies',
+								text: 'Our team of professional analysts is constantly roaming the web in search of promising techniques.'
+							})
+
+						.col-md-6.col-xl-3
+							+icon-box-left({
+								icon: ['icon-lg', 'material-icons-av_timer'],
+								header: 'We Value Your Time',
+								text: 'We know how important it is for you to maintain your schedule, that’s why we do everything to fit it. '
+							})
+
+						.col-md-6.col-xl-3
+							+icon-box-left({
+								icon: ['icon-lg-variant-1', 'material-icons-headset_mic'],
+								header: 'Qualified Support',
+								text: 'Our support team is online 24/7, and is ready to help you with any design-related issue.'
+							})
+
+						.col-md-6.col-xl-3
+							+icon-box-left({
+								icon: ['icon-lg', 'material-icons-av_timer'],
+								header: 'Made for Speed',
+								text: 'We know how embarassing and time-consuming content loading can be.'
+							})
+
+
+	//- Icon Top List
+	section.section.section-md.bg-default
+		.container
+			h3 Icon Top List
+			.row
+				.col-lg-9.col-xl-12
+					.row.row-30
+						.col-sm-6.col-xl-3
+							+icon-box-vertical({
+								icon: ['icon-md', 'material-icons-phonelink'],
+								header: 'Responsive & Retina',
+								text: 'Starbis looks simply great on any screen resolution. All images are responsive and ultra sharp.'
+							})
+
+						.col-sm-6.col-xl-3
+							+icon-box-vertical({
+								icon: ['icon-md', 'material-icons-library_books'],
+								header: 'Extensive docs',
+								text: 'Starbis has online and easily accesible documentation. Our documentation contains detailed instructions for further template customization and self adaptation.'
+							})
+
+						.col-sm-6.col-xl-3
+							+icon-box-vertical({
+								icon: ['icon-md', 'material-icons-videocam'],
+								header: 'Video Backgrounds',
+								text: 'Our templates are enabled with captivating video background, an option which can transform any website into esthetically appealing one.'
+							})
+
+						.col-sm-6.col-xl-3
+							+icon-box-vertical({
+								icon: ['icon-md', 'material-icons-open_with'],
+								header: 'Powerful Navigation',
+								text: 'Powerful and really flexible RD Navbar plugin is included too. Create any type of navigation with our ready-to-go examples and adapt them to your needs.'
+							})
+
+
+	//- Icon Box
+	section.section.section-md.bg-default
+		.container
+			h3 Icon Box
+			.row.row-40
+				.col-sm-6.col-lg-4.height-fill
+					+icon-box({
+						icon: 'icon-md icomoon-stats',
+						header: 'Career mentoring',
+						text: 'Accelerate your career and achieve your goals through mentoring at Lead Planner.'
+					}).shadow-lg
+				.col-sm-6.col-lg-4.height-fill
+					+icon-box({
+						icon: 'icon-md icomoon-user',
+						header: 'Work & life balance',
+						text: 'Gain more balance between work and life and make a positive change today.'
+					}).bg-primary
+				.col-sm-6.col-lg-4.height-fill
+					+icon-box({
+						icon: 'icon-md icomoon-aim',
+						header: 'Important decisions',
+						text: 'Decide what to do next with your work to achieve success with your business.'
+					}).bg-aqua-grey.context-dark
+
+	//- Page Footer
+	include ../sections/_section-footer-default

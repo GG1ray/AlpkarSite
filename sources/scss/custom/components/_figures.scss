@@ -1,0 +1,22 @@
+/** @section Figure */
+
+figure {
+  img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+  }
+}
+
+.figure {
+  .caption {
+    padding: 15px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .figure {
+    .caption {
+    }
+  }
+}

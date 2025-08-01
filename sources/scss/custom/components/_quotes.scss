@@ -1,0 +1,472 @@
+/** @section Quotes */
+
+// Reset styles
+blockquote {
+  font: inherit;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  q {
+    &:before,
+    &:after {
+      content: none;
+    }
+  }
+  cite {
+    font-style: normal;
+  }
+}
+
+// Quote default
+.quote-default {
+  position: relative;
+  max-width: 530px;
+  padding: 43px 0 43px 6px;
+  @extend %text-bigger;
+  color: $gray-darker;
+
+  svg {
+    fill: $alto;
+  }
+
+  .quote-open,
+  .quote-close {
+    position: absolute;
+    left: 30px;
+  }
+
+  .quote-open {
+    top: 0;
+  }
+
+  .quote-close {
+    bottom: 0;
+  }
+}
+
+* + .quote-default { margin-top: 30px; }
+[class*='inset'] + .quote-default { margin-top: 15px; }
+.quote-default + [class*='inset'] { margin-top: 15px; }
+
+// Large ≥992px
+@include media-breakpoint-up(lg) {
+  [class*='inset'] + .quote-default { margin-top: 0px; }
+  .quote-default + [class*='inset'] { margin-top: 0px; } 
+}
+
+// Quote bordered
+.quote-bordered {
+  $border-color: $porcelain;
+  $quote-open-color: $primary;
+  $quote-padding: 37px 22px 29px 34px;
+  $tail-center: 56px;
+  $tail-width: 20px;
+  $tail-height: 10px;
+  padding-top: 14px;
+  max-width: 470px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .quote-body {
+    position: relative;
+    padding-bottom: $tail-height;
+  }
+
+  .quote-body-inner {
+    position: relative;
+    padding: $quote-padding;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+    border-color: $border-color;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -$tail-height;
+      height: $tail-height;
+      border-style: solid;
+      border-color: $border-color;
+      background-color: transparent;
+    }
+
+    &:before {
+      left: $tail-width / 2;
+      width: $tail-center - $tail-width / 2;
+      border-width: 1px 1px 0 0;
+      transform: skew(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    &:after {
+      right: $tail-width / 2;
+      width: calc(100% - #{$tail-center - $tail-width / 2 + $tail-height  * 2});
+      border-width: 1px 0 0 1px;
+      transform: skew(-45deg);
+      transform-origin: 0 100%;
+    }
+  }
+
+  .quote-open {
+    position: absolute;
+    top: -10px;
+    left: nth($quote-padding, 4);
+    z-index: 2;
+
+    > svg {
+      fill: $quote-open-color;
+    }
+  }
+
+  .quote-footer {
+    padding-left: 25px;
+  }
+
+  cite {
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 21px;
+    color: $black;
+  }
+
+  // Offsets
+  * + .quote-footer {
+    margin-top: 9px;
+  }
+
+  cite + p {
+    margin-top: 0;
+  }
+}
+
+// Quote minimal bordered
+.quote-minimal-bordered {
+  position: relative;
+  padding: 16px 0 26px;
+  text-align: center;
+
+  q {
+    font: 400 20px $font-family-base;
+    font-style: italic;
+    color: $abbey;
+
+    &:before,
+    &:after {
+      content: '"';
+    }
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 270px;
+    height: 1px;
+    transform: translateX(-50%);
+    background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba($gray-light,1) 50%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba($gray-light,1) 50%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba($gray-light,1) 50%,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00000000',GradientType=1 );
+
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    q {
+      font-size: 24px;
+      line-height: 1.55;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    q {
+      font-size: 30px;
+    }
+  }
+}
+
+// Quote minimal
+.quote-minimal {
+  q {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.2;
+    &::before {
+      content: '“';
+    }
+    &::after {
+      content: '”';
+    }
+  }
+
+  cite {
+    font: 500 15px $font-family-base;
+    line-height: 1.1;
+    color: $black;
+  }
+
+  .caption {
+    color: $body-color;
+  }
+
+  // Mods
+  &.quote-minimal-inverse {
+    q {
+      color: $white;
+    }
+
+    cite {
+      color: $white;
+    }
+
+    .caption {
+      color: rgba($white, .5);
+    }
+  }
+
+  // Offsets
+  * + .caption {
+    margin-top: 0;
+  }
+
+  * + .quote-meta {
+    margin-top: 20px;
+  }
+}
+
+// Quote strict
+.quote-strict {
+  q,
+  cite {
+    color: $black;
+  }
+
+  q {
+    font-size: 19px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 28px;
+  }
+
+  cite {
+    display: block;
+    font: 500 16px/21px $font-family-base;
+    text-transform: uppercase;
+  }
+
+  // Offsets
+  * + cite {
+    margin-top: 20px;
+  }
+
+  // Mods
+  &.quote-strict-inverse {
+    q,
+    cite {
+      color: $white;
+    }
+  }
+}
+
+// Quote vertical
+.quote-vertical {
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  q {
+    font-size: 16px;
+    line-height: (30 / 19);
+    color: rgba($black, .5);
+  }
+
+  cite {
+    display: block;
+    color: $black;
+    font: 400 14px/18px $font-family-base;
+  }
+
+  .quote-open {
+    > svg {
+      fill: $primary;
+    }
+  }
+
+  .quote-image {
+    &,
+    > img {
+      border-radius: 600px;
+    }
+
+    > img {
+      width: auto;
+    }
+  }
+
+  // Offsets
+  * + cite {
+    margin-top: 16px;
+  }
+
+  * + .caption {
+    margin-top: 0;
+  }
+
+  * + .quote-text {
+    margin-top: 25px;
+  }
+
+  * + .quote-meta {
+    margin-top: 25px;
+  }
+
+  
+}
+
+%context-dark {
+  .quote-vertical {
+    q,
+    .caption {
+      color: rgba($white, .5);
+    }
+
+    cite {
+      color: $white;
+    }
+
+    .quote-open {
+      > svg {
+        fill: $white;
+      }
+    }
+  }
+}
+
+// Quote review
+.quote-review {
+  cite {
+    font: 500 14px/18px $font-family-base;
+    text-transform: uppercase;
+    letter-spacing: -.025em;
+    color: $black;
+  }
+
+  .quote-header {
+    @include spacing(10px, 2px);
+    > * {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  // Offsets
+  * + .quote-body {
+    margin-top: 10px;
+  }
+}
+
+* + .quote-review {
+  margin-top: 35px;
+}
+
+@include media-breakpoint-up(md) {
+  .quote-minimal {
+
+    // Offsets
+    * + .quote-meta {
+      margin-top: 37px;
+    }
+  }
+
+  * + .quote-review {
+    margin-top: 45px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .quote-minimal {
+    q {
+      font-size: 36px;
+    }
+  }
+
+  .quote-vertical {
+    q {
+      font-size: 19px;
+    }
+  }
+}
+
+.quote-wrap-1 {
+  // Medium ≥768px
+  @include media-breakpoint-up(md) {
+    padding-right: 70px; 
+  }
+  
+  // Extra large ≥1200px
+  @include media-breakpoint-up(xl) {
+    padding-right: 200px;
+  } 
+}
+
+* + .quote-wrap-1 { margin-top: 40px * $xs-multiplier; }
+.quote-wrap-1 + * { margin-top: 40px * $xs-multiplier;}
+
+// Medium ≥992px
+@include media-breakpoint-up(lg) {
+  * + .quote-wrap-1 { margin-top: 40px * $lg-multiplier; }
+  .quote-wrap-1 + * { margin-top: 40px * $lg-multiplier; }
+}
+
+@include media-breakpoint-up(xl) {
+  * + .quote-wrap-1 { margin-top: 40px; }
+  .quote-wrap-1 + * { margin-top: 40px; }
+}
+
+// Quote primary
+.quote-primary {
+  .quote-body {
+    padding-bottom: 30px * $xs-multiplier;
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 20px solid $primary;
+      border-right: 30px solid transparent;
+      display: block;
+    }
+  }
+  .quote-body-inner {
+    position: relative;
+    padding: 40px;
+    border-radius: $border-radius $border-radius $border-radius 0;
+    background-color: $primary;
+
+  }
+  cite { & + * { margin-top: 0; } }
+  p {line-height: 1.2; }
+  q {
+    font-weight: 500;
+    line-height: 1.6;
+    &::before { content: '“'; }
+    &::after { content: '”'; }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+	.quote-primary .quote-body { padding-bottom: 30px * $lg-multiplier; }
+}
+
+@include media-breakpoint-up(xl) {
+	.quote-primary .quote-body { padding-bottom: 30px; }
+}

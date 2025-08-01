@@ -1,0 +1,31 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = '503 page'
+
+block page
+	section.section.section-single.bg-gray-darker.bg-image.novi-background(style='background-image: url(images/bg-404.jpg);')
+		.section-single-inner
+			//- Page Header
+			include ../sections/_section-header-base-transparent
+
+			//- Page Main
+			.section-single-main
+				.container
+					.row.justify-content-md-center
+						.col-md-9.col-lg-8
+							h5 Service is temporary unavailable
+							.text-extra-large-bordered
+								p 503
+							p
+								| Sorry, we're offline right now to make our site even better.
+								br.d-none.d-sm-block
+								|  Please, come back later and check what we've been up to.
+
+							.group-xl
+								a.btn.btn-primary(href='index.html') Back to home
+								a.btn.btn-default-outline(href='contact-me.html') Contact us
+
+			//- Page Footer
+			include ../sections/_section-footer-base-transparent
+	="\n"

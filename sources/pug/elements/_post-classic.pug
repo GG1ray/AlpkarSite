@@ -1,0 +1,49 @@
+//- Post classic
+mixin post-classic(obj)
+	//- Post classic
+	article.post-classic
+		if (typeof(obj.media) !== 'undefined')
+			.post-media
+				case obj.media.type
+					when "audio"
+						.soundcloud-player-classic
+							!=obj.media.data
+
+					when "video"
+						.ratio.ratio-16x9
+							!=obj.media.data
+
+					when "gallery"
+						//- Owl Carousel
+						.owl-carousel.owl-style-minimal(data-autoplay='true', data-items='1', data-stage-padding='0', data-loop='true', data-margin='15', data-mouse-drag="true", data-dots='true', data-animation-in='fadeIn', data-animation-out='fadeOut')
+							each item in obj.media.data
+								.item
+									figure
+										+img(item)
+
+					when "image"
+						figure
+							+img(obj.media.data)
+
+		.post-main
+			.post-info
+				+img(obj.img)
+				h6.post-author=obj.user
+
+			.post-body
+				h4: a(href='blog-post.html')=obj.header
+				each line in obj.text
+					p=line
+
+				.post-footer
+					ul.post-meta
+						li.object-inline
+							span.novi-icon.icon.icon-xxs.icon-gray-base.material-icons-event
+							time(datetime=obj.time[0])=obj.time[1]
+
+						li.object-inline
+							span.novi-icon.icon.icon-xxs.icon-gray-base.material-icons-loyalty
+							ul.list-tags-inline
+								each tag in obj.tags
+									li: a(href='#')=tag
+

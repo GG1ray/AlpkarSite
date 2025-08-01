@@ -1,0 +1,122 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_counter
+include ../elements/_icon-box-horizontal
+include ../elements/_quote-primary
+
+block variables
+	- pageName = 'About me'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	section.section.section-lg.bg-default
+		.container
+			.row.row-40.justify-content-md-between.flex-column-reverse.flex-md-row
+				.col-md-6
+					h2 Helping millions of owners create a business that works.
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec venenatis elit, sed vehicula sapien. Praesent facilisis varius imperdiet. Ut et ligula quis mi viverra sodales. Vivamus lectus magna, faucibus vel ipsum.
+					p Donec quis vehicula diam. Ut viverra ligula non arcu bibendum, suscipit commodo orci semper. Curabitur orci magna, porta quis nibh nec, vehicula gravida ipsum.
+					.row.row-xs.row-20
+						.col-6
+							+counter({
+								title: 'Percentage of regular and returning customers',
+								value: 82,
+								postfix: '%'
+							})
+						.col-6
+							+counter({
+								title: 'Positive reviews and testimonials submitted by my clients',
+								value: 100,
+								postfix: '+'
+							})
+				.col-md-5
+					+img('img-03-510x680')
+
+	section.section.section-lg.bg-primary
+		.container
+			.row.row-30.justify-content-lg-between
+				.col-md-6.col-lg-5
+					h2 Working together#[br] for your better life!
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer congue nisl neque, sagittis pretium justo egestas sed.
+					p.small Diam sit in eget ac nulla amet sit. Aliquam ipsum consectetur vel senectus tincidunt quis ullamcorper diam suspendisse. Tellus volutpat consectetur aliquam.
+				.col-md-6.col-lg-5
+					article.icon-box-horizontal
+						.unit.unit-spacing-lg
+							.unit-left
+								span.icon.icomoon-stats.icon-md
+							.unit-body
+								h4: a(href='#') Career mentoring
+								p.small Quicquam fratrum declivia gravitate. Nam coegit alto unda austro declivia liberioris liberioris effigiem.
+					article.icon-box-horizontal
+						.unit.unit-spacing-lg
+							.unit-left
+								span.icon.icomoon-user.icon-md
+							.unit-body
+								h4: a(href='#') Work & life balance
+								p.small Pumero divino toto prima ensis. Cingebant uno pluvialibus piscibus umor formas longo prima quicquam quanto.
+					article.icon-box-horizontal
+						.unit.unit-spacing-lg
+							.unit-left
+								span.icon.icomoon-aim.icon-md
+							.unit-body
+								h4: a(href='#') Important decisions
+								p.small Nitidis locum auroram dissaepserat ulla dextra rapidisque spisso caesa. Locum auroram dissaepserat ulla.
+
+	section.section.section-lg.bg-default
+		.container
+			.row
+				.col-md-10.col-xl-8
+					h2 Kind words from my happy clients
+					p My clients appreciate the provided guidance and assistance I offer along the way to help them become stronger leaders and unlock the full potential of their businesses. Read their latest testimonials below.
+			.owl-carousel.owl-style-minimal(
+				data-items='1',
+				data-sm-items='2',
+				data-lg-items='3',
+				data-margin='40',
+				data-dots='true'
+			)
+				+quote-primary({
+					text: 'The coaching has been really rewarding. I have learned how to communicate clearly with my team and to reflect on my leadership skills.',
+					img: 'person-01-64x64',
+					cite: 'Courtney Johnson',
+					caption: '28.10.2023'
+				})
+				+quote-primary({
+					text: 'I have worked with John for almost a year, and during this time I’ve learned how to be realistic about my work.',
+					img: 'person-02-64x64',
+					cite: 'Jenny Wilson',
+					caption: '28.10.2023'
+				})
+				+quote-primary({
+					text: 'Working with Mr. Adams has enabled me to shape and implement a set of personal objectives that have materially improved my performance as a leader.',
+					img: 'person-03-64x64',
+					cite: 'Andrew Jackson',
+					caption: '28.10.2023'
+				})
+				+quote-primary({
+					text: 'The coaching has been really rewarding. I have learned how to communicate clearly with my team and to reflect on my leadership skills.',
+					img: 'person-01-64x64',
+					cite: 'Courtney Johnson',
+					caption: '28.10.2023'
+				})
+				+quote-primary({
+					text: 'I have worked with John for almost a year, and during this time I’ve learned how to be realistic about my work.',
+					img: 'person-02-64x64',
+					cite: 'Jenny Wilson',
+					caption: '28.10.2023'
+				})
+				+quote-primary({
+					text: 'Working with Mr. Adams has enabled me to shape and implement a set of personal objectives that have materially improved my performance as a leader.',
+					img: 'person-03-64x64',
+					cite: 'Andrew Jackson',
+					caption: '28.10.2023'
+				})
+
+
+	include ../sections/_section-footer-default

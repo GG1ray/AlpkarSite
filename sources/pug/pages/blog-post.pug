@@ -1,0 +1,152 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_comment
+include ../elements/_post-preview
+
+block variables
+	- pageName = 'Blog post'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Blog post
+	section.section.section-lg.bg-default
+		.container
+			.row.row-50.justify-content-between
+				.col-lg-8
+					article.post.post-single
+						.post-image
+							figure: +img('post-1-840x464')
+						.post-header
+							h2.h3 The ultimate guide to time management
+
+						.post-meta.small
+							ul.list-bordered-horizontal
+								li
+									dl.list-terms-inline
+										dt Date
+										dd: time.text-secondary(datetime='2023-01-22') January 22, 2023
+								li
+									dl.list-terms-inline
+										dt Posted by
+										dd: a(href='#') Amelia Lee
+								li
+									dl.list-terms-inline
+										dt Comments
+										dd: a(href='#') 1
+								li
+									dl.list-terms-inline
+										dt Category
+										dd: a(href='#') Management
+
+						.divider-fullwidth
+
+						.post-body
+							p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec venenatis elit, sed vehicula sapien. Praesent facilisis varius imperdiet. Ut et ligula quis mi viverra sodales. Vivamus lectus magna, faucibus vel ipsum. Proin iaculis, diam et placerat lacinia, odio nisl congue tellus, sed placerat nunc neque id urna. Phasellus nec massa purus.
+							.quote-wrap-1
+								blockquote.quote-minimal
+									p: q It may seem like a no-brainer, but time management can make all the difference in both the short and long-term.
+							p Pulvinar tortor viverra fusce phasellus sed id quam. Scelerisque accumsan est mi nunc egestas. Nulla quam mauris aliquet ac aliquam tortor nulla. Mattis nulla egestas ornare dictum. Sed sed molestie augue posuere erat eget. Vitae mattis elementum amet quam. Pretium vivamus blandit scelerisque diam purus imperdiet sit nunc amet. Porta dolor nisi lacus quam morbi.
+
+						.post-footer
+							h5 Share
+							ul.list-inline.list-inline-sm
+								li: a.novi-icon.icon.icon-xs.link-tundora.fa-facebook(href='#')
+								li: a.novi-icon.icon.icon-xs.link-tundora.fa-twitter(href='#')
+								li: a.novi-icon.icon.icon-xs.link-tundora.fa-linkedin(href='#')
+
+
+					.divider-fullwidth.bg-gray-lighter
+
+					//- Comments
+					.comment-list-wrap
+						.comment-list
+							.comment-group
+								+comment({
+									img: 'post-2-90x90',
+									user: 'Frank Peters',
+									text: 'Nullam tellus justo, dapibus venenatis fermentum ut, vulputate sed nisi. Curabitur tempus egestas pharetra. Nulla porttitor libero ut enim facilisis vehicula. Donec vel dapibus enim.'
+								})
+
+					//- Leave a comment
+					.offset-top-8
+						h3 Leave a comment
+						.form-classic-wrap
+							//- RD Mailform
+							form.rd-mailform.form-classic.form-classic-bordered
+								.form-wrap
+									label.form-label(for="comment-message") Message
+									textarea#comment-message.form-input(name="message" data-constraints="@Required")
+								.form-wrap
+									label.checkbox-inline.small
+										input.checkbox-custom(type='checkbox')
+										|  I agree to the #[a.link-secondary.text-decoration-underline(href='#') Privacy Policy] and #[a.link-secondary.text-decoration-underline(href='#') Terms of Use], and want to receive news
+
+								button(type="submit" style='min-width: 200px;').btn.btn-nero Submit
+
+				//- Aside
+				.col-lg-4.col-xl-3
+					.blog-aside
+						.blog-aside-item
+							form.rd-search.rd-search-classic(action="search-results.html", method="GET")
+								.form-wrap
+									label.form-label(for="rd-search-form-input-1") Search
+									input.form-input(id="rd-search-form-input-1" type="text" name="s" autocomplete="off")
+								button.rd-search-submit(type='submit')
+
+						.blog-aside-item
+							h4 Categories
+							ul.list-marked-variant-3
+								li: a(href='#')
+									span Management
+									span.list-counter (3)
+								li: a(href='#')
+									span Marketing
+									span.list-counter (4)
+								li: a(href='#')
+									span Business
+									span.list-counter (4)
+
+						.blog-aside-item
+							h4 Popular posts
+							.post-preview-wrap
+								+post-preview({
+									small: true,
+									img: 'post-preview-1-80x80',
+									header: 'Find more time in your day through a simple time audit',
+									time: ['2023-02-04', 'Feb 4, 2023']
+								})
+
+								+post-preview({
+									small: true,
+									img: 'post-preview-2-80x80',
+									header: 'How to get more out of your business',
+									time: ['2023-02-04', 'Feb 4, 2023']
+								})
+
+								+post-preview({
+									small: true,
+									img: 'post-preview-3-80x80',
+									header: '5 steps to increasing your effectiveness',
+									time: ['2023-02-04', 'Feb 4, 2023']
+								})
+
+						.blog-aside-item
+							h4 Tags
+							ul.list-tag-blocks
+								li: a(href='#') Business
+								li: a(href='#') Marketing
+								li: a(href='#') Management
+								li: a(href='#') Audit
+								li: a(href='#') Team
+								li: a(href='#') Success
+
+
+
+	//- Page Footer
+	include ../sections/_section-footer-default

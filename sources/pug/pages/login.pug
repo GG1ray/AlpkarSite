@@ -1,0 +1,43 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Login'
+
+block page
+	section.section.section-single.bg-gray-darker.bg-image.novi-background(style='background-image: url(images/bg-login.jpg);')
+		.section-single-inner
+			//- Page Header
+			include ../sections/_section-header-base-transparent
+
+			//- Page Main
+			section.section-single-main
+				.container
+					.row.justify-content-md-center
+						//- Login Form
+						.col-md-7.col-lg-5.col-xl-4
+							//- Block shadow
+							.block-shadow
+								.block-inner
+									p.h7 Login to your account
+									span.novi-icon.icon.icon-xl.icon-black.material-icons-lock_open.block-icon
+
+								//- RD Mailform
+								form.rd-mailform.form-modern.form-darker.form-disabled
+									.block-inner
+										.form-wrap
+											input#login-form-login.form-input(type="text" name="login" data-constraints="@Required")
+											label.form-label(for="login-form-login") Login
+										.form-wrap
+											input#login-form-password.form-input(type="password" name="pass" data-constraints="@Required")
+											label.form-label(for="login-form-password") Password
+										.form-wrap
+											a.link-default.small(href='#') Forgot your password?
+									button(type="submit").btn.btn-primary.btn-round-bottom.btn-block Sign in
+
+							.group-inline.text-center.small
+								span Haven’t an account?
+								a.link-primary-inverse(href='registration.html') Sign up here.
+
+			//- Page Footer
+			include ../sections/_section-footer-base-transparent
+	="\n"

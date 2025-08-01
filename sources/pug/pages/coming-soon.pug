@@ -1,0 +1,40 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Coming soon'
+
+block page
+	section.section.section-single.bg-gray-darker.bg-image.novi-background(style='background-image: url(images/bg-coming-soon.jpg);')
+		.section-single-inner
+			//- Page Header
+			include ../sections/_section-header-base-transparent
+
+			//- Page Main
+			section.section-single-main
+				.container
+					h1.h2.text-style-lighter
+						| We're getting ready
+						br
+						| to launch in
+					.block-centered
+						//- Countdown
+						.countdown.countdown-default(data-type='until', data-time='26 June 2024 16:00', data-format='dhms')
+
+						p(style='opacity: 0.8;')
+							| Our website is under construction, we are working very hard
+							br.d-none.d-sm-block
+							|  to give you the best experience on our new web site.
+
+					.row.justify-content-center
+						.col-md-6.col-lg-5.col-xl-4
+							h2.h5 Stay ready, we`re launching soon
+							//- RD Mailform
+							form.rd-mailform.form-modern(data-form-output="form-output-global", data-form-type='subscribe', method='post', action='bat/rd-mailform.php')
+								.form-wrap
+									label.form-label(for="contact-email") Email
+									input#contact-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+								button(type="submit").btn.btn-primary.btn-block Subscribe
+
+			//- Page Footer
+			include ../sections/_section-footer-base-transparent
+	="\n"

@@ -1,0 +1,63 @@
+header.page-head
+	//- RD Navbar
+	.rd-navbar-wrap
+		nav.rd-navbar.rd-navbar-corporate-dark(
+		data-layout=              'rd-navbar-fixed',
+		data-sm-layout=           'rd-navbar-fixed',
+		data-md-layout=           'rd-navbar-fixed'
+		data-md-device-layout=    'rd-navbar-fixed',
+		data-lg-layout=           'rd-navbar-static',
+		data-lg-device-layout=    'rd-navbar-fixed',
+		data-xl-layout=           'rd-navbar-static',
+		data-xl-device-layout=    'rd-navbar-static',
+		data-xxl-layout=          'rd-navbar-static',
+		data-xxl-device-layout=   'rd-navbar-static',
+		data-lg-stick-up=         'true',
+		data-xl-stick-up=         'true',
+		data-xxl-stick-up=        'true',
+		data-lg-stick-up-offset=  '53px',
+		data-xl-stick-up-offset=  '53px',
+		data-xxl-stick-up-offset= '53px')
+			.rd-navbar-inner
+				.rd-navbar-aside
+					.rd-navbar-aside-toggle(data-custom-toggle='.rd-navbar-aside', data-custom-toggle-disable-on-blur='true')
+						span
+					.rd-navbar-aside-content.context-dark
+						ul.rd-navbar-aside-group.list-units
+							li
+								.unit.unit-horizontal.unit-spacing-xs
+									.unit-left: span.novi-icon.icon.icon-xxs-small.icon-primary.material-icons-place.icon-shift-1
+									.unit-body: a.link-light-2.d-inline(href='#')= links.address
+
+							li
+								.unit.unit-horizontal.unit-spacing-xs
+									.unit-left: span.novi-icon.icon.icon-xxs.icon-primary.fa-clock-o
+									.unit-body: p.text-white Mon – Sat: 9:00am–18:00pm. Sunday CLOSED
+
+							li
+								.unit.unit-horizontal.unit-spacing-xs
+									.unit-left: span.novi-icon.icon.icon-xxs.icon-primary.material-icons-phone.icon-shift-2
+									.unit-body: a.link-light-2(href='tel:#') +1 800 123 45 67
+
+
+						.rd-navbar-aside-group
+							ul.list-inline.list-inline-reset
+								li: a.icon.icon-round.icon-gray-dark-filled.icon-xxs-smallest.fa.fa-facebook(href='#')
+								li: a.icon.icon-round.icon-gray-dark-filled.icon-xxs-smallest.fa.fa-twitter(href='#')
+								li: a.icon.icon-round.icon-gray-dark-filled.icon-xxs-smallest.fa.fa-google-plus(href='#')
+
+				.rd-navbar-group.rd-navbar-search-wrap
+					//- RD Navbar Panel
+					.rd-navbar-panel
+						//- RD Navbar Toggle
+						button.rd-navbar-toggle(data-custom-toggle='.rd-navbar-nav-wrap', data-custom-toggle-disable-on-blur='true')
+							span
+
+						//- RD Navbar Brand
+						a.rd-navbar-brand.brand(href='index.html')
+							+logo
+
+					.rd-navbar-nav-wrap
+						.rd-navbar-nav-inner
+							include ../includes/_search
+							+navigation( menu )

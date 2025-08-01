@@ -1,0 +1,11 @@
+//- Career block
+mixin block-career(obj)
+  li.block-image-plate.bg-nero.bg-image.novi-background(style='background-image: url(images/' + obj.img + '.jpg);')
+    .block-inner
+      .block-header
+        h3=obj.header
+      .block-body
+        .block-left
+          .block-list-counter
+        .block-text
+          block

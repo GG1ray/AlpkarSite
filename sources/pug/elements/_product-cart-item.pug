@@ -1,0 +1,33 @@
+//- Product cart item
+mixin product-cart-item(obj)
+  - var price = obj.price.split('.');
+  - var currentPrice = price[0]
+  - var currentPriceSmall = '.' + (price.length == 2 ? price[1] : '00')
+
+  .product.product-cart-item
+    .product-main
+      .product-image
+        +img(obj.img)
+      .product-body
+        p.product-brand=obj.brand
+        h5: a(href='single-product.html')=obj.header
+    .product-aside
+      .product-group
+        dl.dl-inline
+          dt Color
+          dd: span.product-color(style='background-color:' + obj.color + ';')
+
+        dl.dl-inline
+          dt Size
+          dd: span.product-size=obj.size
+
+        .stepper-wrap
+          input(type="number" data-zeros="true" value=obj.count min="1" max="20")
+
+        .pricing-object.pricing-object-sm
+          span.small.small-middle $
+          span.price=obj.price.current = currentPrice
+          span.small.small-bottom=currentPriceSmall
+
+      .product-control
+        a.novi-icon.icon.icon-sm.link-gray-light.material-icons-cancel(href='#')

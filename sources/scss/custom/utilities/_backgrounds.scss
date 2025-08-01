@@ -1,0 +1,153 @@
+/** @section Backgrounds */
+
+%context-dark {
+	color: $white;
+
+	#{headings()} {
+		color: $white;
+	}
+
+	a {
+		&, &:active, &:focus {
+			color: $white;
+		}
+
+		&:hover {
+			color: $secondary;
+		}
+	}
+
+	.big,
+	.text-bigger,
+	.text-extra-large-bordered {
+		color: $white;
+	}
+
+
+	.rights {
+		color: $white;
+
+		a {
+			&:hover {
+				color: $silver-chalice;
+			}
+		}
+	}
+
+	.text-light-03 {
+		color: rgba($white, .3);
+	}
+
+	.btn-default-outline {
+		&:hover {
+			color: $gray-darker;
+			background: $white;
+			border-color: $white;
+		}
+	}
+}
+
+.context-dark {
+	@extend %context-dark;
+}
+
+// Colors
+.bg-default {
+  @include bg-variant-custom($body-bg);
+}
+
+.bg-nero {
+	@extend %context-dark;
+	@include bg-variant-custom($nero);
+}
+
+.bg-aqua-grey {
+	@include bg-variant-custom($aqua-grey);
+}
+
+.bg-gray-darker {
+	@extend %context-dark;
+	@include bg-variant-custom($gray-darker);
+}
+
+.bg-gray-dark {
+	@extend %context-dark;
+	@include bg-variant-custom($gray-dark);
+}
+
+.bg-mine-shaft {
+	@extend %context-dark;
+	@include bg-variant-custom($mine-shaft);
+}
+
+.bg-cod-gray {
+	@extend %context-dark;
+	@include bg-variant-custom($cod-gray);
+}
+
+.bg-gray {
+	@include bg-variant-custom($gray);
+}
+
+.bg-accent {
+	@extend %context-dark;
+	@include bg-variant-custom($primary);
+}
+
+.bg-gray-light {
+	@include bg-variant-custom($gray-light);
+}
+
+.bg-gray-lighter {
+	@include bg-variant-custom($gray-lighter);
+}
+
+.bg-whisper {
+	@include bg-variant-custom($whisper);
+}
+
+.bg-athens-gray {
+	@include bg-variant-custom($athens-gray);
+}
+
+.bg-iron {
+	@include bg-variant-custom($iron);
+}
+
+.novi-background {
+	background-size: cover;
+}
+
+.script-link {
+}
+
+.script-image {
+}
+
+// Bg image
+.bg-image {
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+.bg-image-centered {
+	-webkit-background-size: auto;
+	background-size: auto;
+}
+
+.bg-fixed {
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.bg-image-1 {
+	-webkit-background-size: auto 100%;
+	background-size: auto 100%;
+
+	@include media-breakpoint-down(md) {
+		background-image: none !important;
+	}
+}

@@ -1,0 +1,63 @@
+extends  ../_skeleton
+
+//- Includes
+
+block variables
+	- pageName = 'Buttons'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Buttons
+	section.section.section-md.bg-default.novi-background
+		.container
+			.row.row-50.row-lg-90
+				.col-sm-12
+					h3 Button Size
+					p.text-secondary 4 different sizes: super, large, default and small.
+					.group-lg.group-middle
+						.btn.btn-xl.btn-primary super size
+						.btn.btn-lg.btn-primary Large size
+						.btn.btn-primary Default size
+						.btn.btn-sm.btn-primary Small size
+
+				.col-sm-12
+					h3 Button Size
+					p.text-secondary 4 different shapes: default, round, square and circle.
+					.group-lg.group-middle
+						.btn.btn-primary Default
+						.btn.btn-primary.btn-round round
+						.btn.btn-primary.btn-rect square
+						.btn.btn-primary.btn-circle Circle
+
+				.col-sm-12
+					h3 Buttons with Icons
+					p.text-secondary Buttons are fully integrated with 900+ icons.
+					.group-lg.group-middle
+						.btn.btn-icon.btn-icon-left.btn-primary
+							span.novi-icon.icon.icon-xs-smaller.material-icons-shopping_cart
+							| Icon Left
+						.btn.btn-icon.btn-icon-right.btn-primary
+							span.novi-icon.icon.icon-xs-smaller.material-icons-shopping_cart
+							| Icon Right
+						.btn.btn-icon.btn-icon-left.btn-primary-outline
+							span.novi-icon.icon.icon-xs-smaller.material-icons-shopping_cart
+							| Icon Left
+						.btn.btn-icon.btn-icon-right.btn-primary-outline
+							span.novi-icon.icon.icon-xs-smaller.material-icons-shopping_cart
+							| Icon Right
+
+				.col-sm-12
+					h3 Buttons with Shadow
+					p.text-secondary Enhance your button with a shadow effect.
+					.group-lg.group-middle
+						.btn.btn-primary.btn-shadow shadow
+						.btn.btn-primary-outline.btn-shadow shadow
+
+
+	//- Page Footer
+	include ../sections/_section-footer-default

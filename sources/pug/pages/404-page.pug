@@ -1,0 +1,26 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = '404 page'
+
+block page
+	section.section.section-single.bg-image.bg-gray-darker.novi-background(style='background-image: url(images/bg-404.jpg);')
+		.section-single-inner
+			//- Page Header
+			include ../sections/_section-header-base-transparent
+
+			//- Page Main
+			.section-single-main
+				.container
+					.row.justify-content-md-center
+						.col-md-9.col-lg-8
+							h5 Sorry, but page was not found
+							.text-extra-large-bordered
+								p 404
+							p You may have mistyped the address or the page may have moved.
+							.group-xl
+								a.btn.btn-primary(href='index.html') Back to home
+								a.btn.btn-white-outline(href='contact-me.html') Contact us
+
+			//- Page Footer
+			include ../sections/_section-footer-base-transparent

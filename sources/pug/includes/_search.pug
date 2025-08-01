@@ -1,0 +1,9 @@
+//- RD Navbar Search
+.rd-navbar-search
+	form.rd-search(action="search-results.html", method="GET", data-search-live="rd-search-results-live")
+		.form-wrap
+			label(for="rd-search-form-input" class="form-label") Search...
+			input(class="form-input" id="rd-search-form-input" type="text" name="s" autocomplete="off")
+			#rd-search-results-live.rd-search-results-live
+		button.rd-search-submit(type='submit')
+	button.rd-navbar-search-toggle(data-rd-navbar-toggle=".rd-navbar-search, .rd-navbar-search-wrap")

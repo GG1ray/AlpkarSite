@@ -1,0 +1,148 @@
+/** @section Utilities */
+
+// Helpers
+// -------------------------
+
+.block-top-level {
+  position: relative;
+  z-index: 3;
+}
+
+.height-fill {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  > * {
+    flex-grow: 1;
+  }
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.align-bottom {
+	align-self: flex-end;
+}
+
+.block-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.responsive-centered {
+  @include media-breakpoint-down(md) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.page .white-space-normal {
+  white-space: normal;
+}
+
+// Misc
+// -------------------------
+.contact-info {
+  vertical-align: baseline;
+
+  a {
+    display: inline-block;
+  }
+
+  dl {
+    dt, dd {
+      display: inline-block;
+    }
+
+    dt:after {
+      content: ':';
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  .dl-inline {
+    dt {
+      padding-right: 0;
+    }
+  }
+}
+
+.grid-system {
+  p {
+    color: $secondary;
+  }
+  @include media-breakpoint-down(xl) {
+    p {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.object-inline,
+.object-inline-baseline {
+  white-space: nowrap;
+  > * + * {
+    margin-top: 0;
+    margin-left: 5px;
+  }
+}
+
+.object-inline {
+  vertical-align: middle;
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.object-inline-baseline {
+  vertical-align: baseline;
+
+  > * {
+    display: inline-block;
+    vertical-align: baseline;
+  }
+}
+
+.row-no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+
+  [class*='col'] {
+    padding: 0;
+  }
+}
+
+.text-width-1 {
+  max-width: 400px;
+  @include media-breakpoint-up(lg) {
+    max-width: 310px;
+  }
+}
+
+.min-width-1 {
+  min-width: 100%;
+  @include media-breakpoint-up(sm) {
+    min-width: 270px;
+  }
+}
+
+.img-shadow {
+  box-shadow: -3px 2px 4px 0px rgba($black, 0.58);
+  @include media-breakpoint-up(md) {
+    box-shadow: -5px 4px 8px 0px rgba($black, 0.58);
+  }
+}
+
+// Custom z-index
+.z-1 {
+  z-index: 1;
+}

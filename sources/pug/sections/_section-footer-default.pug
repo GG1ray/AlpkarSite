@@ -1,0 +1,54 @@
+//- Default pre-footer
+footer.section.section-lg.bg-nero
+	.container
+		.row.row-40
+			.col-sm-6.col-lg-4.col-xl-3
+				address.contact-info
+					p.small.
+						3828 Fincham Road#[br]
+						Los Angeles, CA#[br]
+						California 90017
+					p.h4 P:&nbsp;
+						a(href='tel:#') +1 (256) 1087 000
+					a.small.d-block.mt-0.text-decoration-underline(href='mailto:#') mail@demolink.org
+				ul.list-inline.list-social.list-inline-sm
+					li: a.icon.link-secondary.icomoon-youtube(href='#')
+					li: a.icon.link-secondary.icomoon-insta(href='#')
+					li: a.icon.link-secondary.icomoon-facebook(href='#')
+					li: a.icon.link-secondary.icomoon-twitter(href='#')
+					li: a.icon.link-secondary.icomoon-linkedin(href='#')
+			.col-sm-6.col-lg-4.col-xl-3
+				ul.small
+					li: a(href='about-me.html') About me
+					li: a(href='coaching.html') Coaching
+					li: a(href='client-stories.html') Client stories
+					li: a(href='pricing.html') Prices
+					li: a(href='blog.html') Blog
+				a.btn.btn-180.btn-icon.btn-icon-right.btn-nero-outline-1( href='contact-me.html', target='_blank' )
+					span.icon.icon-xs-smaller.icomoon-chat
+					| Contact me
+			.col-lg-4.col-xl-6
+				h3.h4 Stay in touch! Get latest updates and offers.
+				//- RD Mailform
+				form.rd-mailform.form-footer(data-form-output="form-output-global", data-form-type='subscribe', method='post', action='bat/rd-mailform.php')
+					.form-wrap
+						input#contact-email-footer.form-input(type="email" name="email" data-constraints="@Email @Required")
+						label.form-label(for="contact-email-footer") Enter your email
+					button.btn.btn-white(type="submit" aria-label='Subscribe') Subscribe
+				p.small By clicking the button you agree to the Privacy Policy and Terms and Conditions
+
+		.row.row-lg.row-30.align-items-md-center.justify-content-lg-center.justify-content-xl-start.wow.fadeInUp(data-wow-delay='.3s')
+			.col-sm-6.col-lg-4.col-xl-3
+				p.rights.small
+					span= logo.name
+					span &nbsp;&#169;&nbsp;
+					span.copyright-year
+					span .&nbsp;
+					span All rights reserved.
+
+			.col-sm-6.col-lg-4.col-xl-3
+				.unit.unit-spacing-md.small
+					.unit-left
+						a(href='privacy-policy.html') Terms & Conditions
+					.unit-right
+						a(href='privacy-policy.html') Privacy Policy

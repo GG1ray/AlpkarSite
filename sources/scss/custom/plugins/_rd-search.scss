@@ -1,0 +1,373 @@
+/** @section RD Search */
+
+// Base styles
+// ------------------
+.rd-search {
+  position: relative;
+
+  .form-wrap {
+    display: block;
+    margin: 0;
+    font-size: 0;
+  }
+
+  label {
+    * {
+      margin-top: 0;
+    }
+  }
+
+  .rd-search-submit {
+    top: 50%;
+    background-color: transparent;
+    border: none;
+    transform: translateY(-50%);
+  }
+
+  .text-mobile {
+    display: block;
+  }
+
+  .text-default {
+    display: none;
+  }
+
+  @include media-breakpoint-up(md) {
+    .text-mobile {
+      display: none;
+    }
+    .text-default {
+      display: block;
+    }
+  }
+}
+
+.rd-search-submit {
+  @include reset-button();
+  @include make-toggle(
+                  $rd-navbar-search-toggle-preset,
+                  $rd-navbar-min-line-height,
+                  22px,
+                  $gray-darker
+  );
+  position: absolute;
+  right: 0;
+  transition: color .33s;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+// RD Search minimal
+.rd-search-minimal {
+  $border-color: $gray-light;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: center;
+  padding-left: 40px;
+  border-bottom: 1px solid $border-color;
+
+  &:before {
+    content: '\e8b6';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font: 400 21px 'Material Icons';
+    color: $black;
+  }
+
+  .form-wrap {
+    flex-grow: 1;
+  }
+
+  .form-label,
+  .form-input {
+    font: 500 14px/21px $font-family-base;
+    color: $body-color;
+  }
+
+  .form-label {
+    top: 27px;
+  }
+
+  .form-input {
+    padding: 17px 20px;
+    border: none;
+  }
+
+  button[type='submit'] {
+    padding: 0 20px;
+    flex-shrink: 0;
+  }
+
+}
+
+// RD Search classic
+.rd-search-classic {
+  overflow: hidden;
+  border: 1px solid $nero;
+  border-radius: 25px;
+
+
+  .form-label,
+  .form-input {
+    font: 500 14px/21px $font-family-base;
+    color: $body-color;
+  }
+
+  .form-input {
+    padding-right: 50px;
+    border: 0;
+  }
+
+  .rd-search-submit {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    line-height: 0;
+    height: auto;
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+
+    &:before {
+      content: '\e8b6';
+      font: 400 25px 'Material Icons';
+    }
+  }
+}
+
+// Search results (hybrid styles)
+// ----------------------------
+.search_error {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Live Search Results
+// ----------------------------
+.rd-search-results-live {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 998;
+  margin: -3px 0 0;
+  font-size: $font-size-body;
+  line-height: 34px;
+  text-align: left;
+  color: $body-color;
+  opacity: 0;
+  visibility: hidden;
+
+  > * {
+    padding: 16px;
+    border: $form-input-border;
+    border-top: 0;
+  }
+
+  .search-quick-result {
+    font: 500 14px/24px $font-family-base;
+    color: $black;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .search-list {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 30px;
+
+    li + li {
+      margin-top: 20px;
+    }
+
+    .search_error {
+      font-size: 14px;
+      line-height: 1.1;
+    }
+  }
+
+  .search-link {
+    @include link($abbey, $primary);
+  }
+
+  p {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 1.6;
+  } 
+
+  .search-title {
+    margin-bottom: 0;
+    font-family: $font-family-base;
+    font-size: 14px;
+    font-weight: 500;
+    color: $headings-color;
+  }
+
+  .search-submit {
+    display: block;
+    padding: 6px 20px;
+    font-size: $input-btn-font-size;
+    font-weight: $btn-font-weight;
+    text-align: center;
+    color: $white;
+    background: $primary;
+    border-radius: 5px;
+    border: 0;
+    text-transform: uppercase;
+    transition: .3s ease-out;
+
+    &:hover {
+      color: $white;
+      background: $keppel;
+    }
+  }
+
+  .match {
+    display: none;
+  }
+
+  @include media-breakpoint-up(xl) {
+    .search-link {
+      p {
+        display: block;
+      }
+    }
+  }
+}
+
+.rd-navbar-fixed-linked {
+  .rd-search-results-live {
+    display: none;
+  }
+}
+
+.rd-search-results-live.active.cleared {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: .08s;
+}
+
+.active .rd-search-results-live {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+// Search results (list)
+// ----------------------------
+.rd-search-results {
+  .search-list {
+    text-align: left;
+    padding-left: 0;
+    font-size: 14px;
+    list-style-type: none;
+    counter-reset: result;
+  }
+
+  .search-list-item {
+    position: relative;
+    padding-left: 40px;
+    color: $body-color;
+
+    &:before {
+      position: absolute;
+      top: 1px;
+      left: 0;
+      content: counter(result, decimal-leading-zero) '.';
+      counter-increment: result;
+      font: 500 17px $font-family-base;
+      line-height: 27px;
+      color: rgba($black, .3);
+    }
+
+    &:only-child {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .search {
+    color: $white;
+    background: $primary;
+  }
+
+  .search_error {
+    .search {
+      color: $body-color;
+      background-color: transparent;
+    }
+  }
+
+  .match em {
+    font: 400 12px/16px $font-family-base;
+    font-style: normal;
+    text-transform: uppercase;
+    color: $black;
+  }
+
+  // Offsets
+  * + p {
+    margin-top: 10px;
+  }
+
+  * + .match {
+    margin-top: 5px;
+  }
+
+  * + .search-list-item {
+    margin-top: 35px;
+  }
+
+  // Resize
+  @include media-breakpoint-up(sm) {
+    .search-list-item {
+      padding-left: 60px;
+      &:before {
+        top: 0;
+        left: 15px;
+        font-size: 19px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .search-list-item {
+      &:before {
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .search-list-item {
+      padding-left: 85px;
+
+      &:before {
+        left: 40px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .search-list-item {
+      padding-left: 100px;
+
+      &:before {
+        left: 44px;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Registration'
+
+block page
+	section.section.section-single.bg-gray-darker.bg-image.novi-background(style='background-image: url(images/bg-login.jpg);')
+		.section-single-inner
+			//- Page Header
+			include ../sections/_section-header-base-transparent
+
+			//- Page Main
+			section.section-single-main
+				.container
+					.row.justify-content-md-center
+						.col-md-7.col-lg-5.col-xl-4
+							//- Block shadow
+							.block-shadow
+								.block-inner
+									p.h7 Create your account
+									span.novi-icon.icon.icon-xl.icon-black.material-icons-face.block-icon
+								//- RD Mailform
+								form.rd-mailform.form-modern.form-darker.form-disabled
+									.block-inner
+										.form-wrap
+											input#registration-form-name.form-input(type="text" name="name" data-constraints="@Required")
+											label.form-label(for="registration-form-name") Username
+										.form-wrap
+											input#feedback-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+											label.form-label(for="feedback-email") Email
+										.form-wrap
+											input#registration-form-password.form-input(type="password" name="pass" data-constraints="@Required")
+											label.form-label(for="registration-form-password") Password
+										.form-wrap
+											input#registration-form-password-confirm.form-input(type="password" name="pass-confirm" data-constraints="@Required")
+											label.form-label(for="registration-form-password-confirm") Repeat a password
+										.form-wrap.text-start
+											label.checkbox-inline.checkbox-small.small
+												input(name='input-checkbox', value='checkbox-1', type='checkbox')
+												| I agree with the&nbsp;
+												a.link-secondary-2(href='privacy-policy.html') Privacy Policy
+												| .
+
+									button(type="submit").btn.btn-primary.btn-round-bottom.btn-block Sign up
+
+
+			//- Page Footer
+			include ../sections/_section-footer-base-transparent
+

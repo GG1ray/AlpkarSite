@@ -1,0 +1,16 @@
+//- Post preview
+mixin post-preview(obj)
+  article.post.post-preview(class=obj.classes)
+    a(href='blog-post.html')
+      .unit(class=obj.small ? 'unit-spacing-md' : 'unit-spacing-lg')
+        .unit-left
+          figure.post-image
+            +img(obj.img)
+
+        .unit-body
+          .post-header
+            p=obj.header
+          .post-meta
+            ul.list-meta
+              li: time(datetime=obj.time[0])=obj.time[1]
+              li 3 Comments

@@ -1,0 +1,19 @@
+//- Comment
+mixin comment(obj)
+	//- Comment
+	article.comment
+		.unit.unit-spacing-lg.flex-column.flex-sm-row
+			.unit-left
+				figure: +img(obj.img)
+
+			.unit-body
+				.comment-body
+					.comment-body-header.small
+						.comment-meta
+							p.user by&nbsp;
+								a.fw-medium(href='#')=obj.user
+
+						.comment-time: .object-inline
+							time.align-baseline(datetime='2023-01-15') January 15, 2023
+
+					.comment-body-text: p=obj.text

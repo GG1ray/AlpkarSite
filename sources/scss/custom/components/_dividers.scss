@@ -1,0 +1,58 @@
+/** @section Dividers */
+
+.divider {
+  width: 49px;
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background: $primary;
+}
+
+.divider-fullwidth {
+  height: 1px;
+  width: 100%;
+  background-color: $athens-gray;
+}
+
+* + .divider-fullwidth { margin-top: 20px; }
+
+.divider-circle {
+  position: relative;
+  width: 100%;
+  height: 10px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    background: $primary;
+  }
+}
+
+.divider-spectrum {
+  width: 100%;
+  height: 10px;
+  @include bg-rainbow;
+}
+
+// Sizing
+.divider-md {
+  height: 1px;
+  width: 119px;
+}
+
+// Offsets
+* + .divider-circle {
+  margin-top: 32px;
+}
+
+@include media-breakpoint-up(md) {
+  * + .divider-circle {
+    margin-top: 40px;
+  }
+}

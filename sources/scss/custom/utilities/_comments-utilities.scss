@@ -1,0 +1,112 @@
+/** @section Comment */
+
+$comment-border-color: $gray-light;
+
+* + .comment-list-wrap { margin-top: 35px; }
+* + .comment-list { margin-top: 30px; }
+
+.comment {
+  figure {
+    &, img {
+      border-radius: 50%;
+      max-width: 90px;
+    }
+  }
+
+  time {
+  }
+
+  .user {
+
+  }
+
+  .list-icon-meta {
+    @include spacing(8px, 0);
+
+    > li {
+      display: inline-block;
+    }
+  }
+
+  // Elements
+  .comment-body {
+    border-radius: 7px;
+    @include media-breakpoint-up(sm) {
+      padding: 17px 22px 17px 0;
+    }
+  }
+
+  .comment-body-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @include spacing(30px,10px);
+  }
+
+  .comment-meta {
+    @include spacing(10px, 5px);
+
+    @include media-breakpoint-up(md) {
+      > * {
+        display: inline-block;
+        vertical-align: baseline;
+      }
+    }
+  }
+
+  .comment-body-text {
+    margin-top: 13px;
+  }
+}
+
+.comment-minimal {
+  .author {
+    text-transform: uppercase;
+    letter-spacing: -.025em;
+    color: $black;
+  }
+
+  // Offsets
+  * + .comment-body {
+    margin-top: 10px;
+  }
+}
+
+* + .comment-minimal {
+  margin-top: 35px;
+}
+
+.comment-group-reply {
+  padding-left: 12%;
+}
+
+// Offsets
+.comment + * {
+  margin-top: 21px;
+}
+
+* + .comment-group {
+  margin-top: 30px;
+}
+
+@include media-breakpoint-up(md) {
+  .comment {
+    > .unit > .unit-left {
+      margin-top: 16px;
+    }
+  }
+
+  * + .comment-minimal {
+    margin-top: 45px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  * + .post-comment {
+    margin-top: 80px;
+  }
+}
+
+.comment-minimal + h5 {
+  margin-top: 30px;
+}

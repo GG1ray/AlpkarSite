@@ -1,0 +1,86 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_progress-linear
+include ../elements/_countdown
+
+block variables
+	- pageName = 'Progress bars'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Skills Bars
+	section.section.section-md.bg-default
+		.container
+			h3.text-center Skills Bars
+			.row.row-40.justify-content-lg-between.offset-top-1
+				.col-md-6.col-xl-5
+					p Starbis is an independent web design studio with a rich history. It started as a small family-owned business in Oakville, and has grown enough to successfully occupy two large buildings in two different cities.
+					p Today Starbis offers a full range of web design, app development and content marketing services, including building full-featured ecommerce websites and web startups with custom functionality.
+				.col-md-6
+					+progress-linear({
+						title: 'HTML/CSS',
+						value: '70',
+					}).progress-linear-red
+					+progress-linear({
+						title: 'JavaScript',
+						value: '54',
+					}).progress-linear-blue
+					+progress-linear({
+						title: 'Rails',
+						value: '87',
+					}).progress-linear-yellow
+					+progress-linear({
+						title: 'UI/UX',
+						value: '90',
+					}).progress-linear-green
+
+	//- Counters
+	section.section.section-md.bg-nero
+		.container.text-center
+			h3 Counters
+			.row.row-40
+				.col-sm-6.col-md-3
+					.box-counter
+						span.novi-icon.icon.icon-md.icon-primary.material-icons-content_copy
+						//- CountTo
+						.text-large.counter 58249
+						h5.box-header templates
+
+				.col-sm-6.col-md-3
+					.box-counter
+						span.novi-icon.icon.icon-md.icon-primary.material-icons-mood
+						//- CountTo
+						.text-large.counter.counter-k 246
+						h5.box-header happy clients
+
+				.col-sm-6.col-md-3
+					.box-counter
+						span.novi-icon.icon.icon-md.icon-primary.material-icons-access_time
+						//- CountTo
+						.text-large.counter 1200
+						h5.box-header hours of coding
+
+				.col-sm-6.col-md-3
+					.box-counter
+						span.novi-icon.icon.icon-md.icon-primary.material-icons-code
+						//- CountTo
+						.text-large.counter.counter-k 834
+						h5.box-header lines of code
+
+
+	//- Progress Bars
+	section.section.section-60.section-md-75.section-lg-100
+		.container
+			h3.text-center Date Countdown
+			.countdown-box.block-centered
+				//- Countdown
+				+countdown({ to: '2024-06-23' })
+
+	//- Page Footer
+	include ../sections/_section-footer-default

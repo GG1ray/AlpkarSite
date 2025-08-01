@@ -1,0 +1,20 @@
+//- Post block
+mixin post-block(obj)
+  article.post-block
+    .post-image
+      +img(obj.img)
+    .post-body
+      h4.post-header: a(href='blog-post.html')=obj.header
+      ul.post-meta
+        li.object-inline
+          span.text-style-2 by
+          span=obj.user
+        li.object-inline
+          span.novi-icon.icon.icon-xxs.icon-white.material-icons-query_builder
+          time(datetime=obj.time[0])=obj.time[1]
+
+        li.object-inline
+          span.novi-icon.icon.icon-xxs.icon-white.material-icons-loyalty
+          ul.list-tags-inline
+            each tag in obj.tags
+              li: a(href='#')=tag

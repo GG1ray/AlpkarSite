@@ -1,0 +1,126 @@
+/*
+* Static Layout
+*/
+
+.desktop {
+  &:not([data-x-mode="true"]) {
+    @include media-breakpoint-up(lg) {
+      .rd-navbar-static-smooth .rd-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+      }
+    }
+  }
+}
+
+.rd-navbar-static {
+  display: block;
+
+  // Base elements
+  // ---------------
+
+  // RD Navbar inner
+  .rd-navbar-inner {
+    @extend %rd-navbar-transition;
+  }
+
+  .rd-navbar-nav {
+    > li + li {
+      margin-left: $navbar-static-nav-indent;
+    }
+  }
+
+  // RD Navbar styles
+  &.rd-navbar-default,
+  &.rd-navbar-corporate-dark {
+    // RD Navbar Search
+    .rd-navbar-search {
+      position: static;
+      z-index: 2;
+
+      .rd-search {
+        position: absolute;
+        top: -1px;
+        right: 4px;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .rd-search-submit {
+        width: 39px;
+        height: 39px;
+        line-height: 38px;
+      }
+
+      .rd-search-results-live {
+        padding: 0;
+        border: 0;
+        background: $white;
+
+        > * {
+          display: none;
+          padding: 16px;
+          border: $rd-navbar-input-border;
+          border-top: 0;
+          border-radius: 0 0 $rd-navbar-input-border-radius $rd-navbar-input-border-radius;
+        }
+      }
+
+      .form-wrap {
+        border: 0;
+      }
+
+      &.active {
+        .rd-search {
+          opacity: 1;
+          visibility: visible;
+          transition: .22s;
+        }
+
+        .rd-search-results-live > * {
+          display: block;
+        }
+      }
+    }
+
+    .rd-navbar-search-wrap.active .rd-navbar-nav-inner {
+      position: relative;
+    }
+
+    .rd-navbar-search.active + .rd-navbar-nav {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  // RD Navbar clone
+  &.rd-navbar--is-clone {
+    display: block;
+    transform: translateY(-105%);
+    transition: .33s all ease;
+
+    &.rd-navbar--is-stuck {
+      transform: translateY(0);
+    }
+  }
+
+  // States
+  &.rd-navbar--is-clone,
+  &.rd-navbar--is-stuck {
+    .rd-navbar-inner {
+      padding: 13px 30px;
+    }
+
+    .rd-navbar-nav-wrap {
+      margin-top: 0;
+    }
+  }
+}
+

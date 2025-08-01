@@ -1,0 +1,23 @@
+//- Shop panel
+section.section.shop-panel
+  .container.text-center
+    .row.row-15.justify-content-end-xs-middle.justify-content-end-xs-justify
+      .col-sm-4.text-sm-start
+        ul.shop-panel-list
+          li(class={'active': activeShopLayout == 0}): a.icon.icon-sm.material-icons-view_module(href='grid-shop.html')
+          li(class={'active': activeShopLayout == 1}): a.icon.icon-sm.material-icons-view_list(href='shop-list.html')
+
+      .col-sm-8.text-sm-end
+        .shop-panel-controls
+          span Show
+          //- Select 2
+          select.form-input.select-filter(data-minimum-results-search="Infinity", data-custom-theme='modern')
+            option(value="3") 15
+            option(value="4") 20
+            option(value="5") 25
+            option(value="6") 30
+            option(value="8") 40
+            option(value="9") 50
+
+          span items per page
+

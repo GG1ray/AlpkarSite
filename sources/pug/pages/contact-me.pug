@@ -1,0 +1,58 @@
+extends  ../_skeleton
+
+block variables
+	- pageName = 'Contact me'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Get in Touch
+	section.section.section-lg.bg-default
+		.container
+			.row.row-50.justify-content-md-between
+				.col-md-6
+					h2 I am here to answer any questions you may have
+					p(style='max-width: 450px;') Tell me everything about your problem, I'll be glad to help. Fill out the form, or if you prefer send us an email.
+					address.contact-info
+						p.h4 P:&nbsp;
+							a.link-default(href='tel:#') +1 (256) 1087 000
+						a.link-default.mt-0.text-decoration-underline(href='mailto:#') mail@demolink.org
+						p.offset-top-5.
+							3828 Fincham Road#[br]
+							Los Angeles, CA#[br]
+							California 90017
+					.unit.unit-spacing-sm.text-secondary.align-items-center
+						.unit-left
+							span.icon.icon-sm.icomoon-marker
+						.unit-right
+							a.small(href='#' data-bs-toggle="modal" data-bs-target="#map") Show on a map
+				.col-md-6
+					h2 Get in touch
+					//- RD Mailform
+					form.rd-mailform.form-lg(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+						label.form-label-outside(for="feedback-2-first-name") Name*
+						.form-wrap
+							input#feedback-2-first-name.form-input(type="text" name="first-name" data-constraints="@Required")
+							label.form-label(for="feedback-2-first-name") Write your name here
+						label.form-label-outside(for="feedback-2-first-name") Email*
+						.form-wrap
+							input#feedback-2-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+							label.form-label(for="feedback-2-email") Let me know how to contact you
+						label.form-label-outside(for="feedback-2-first-name") Comment*
+						.form-wrap
+							textarea#feedback-2-message.form-input(name="message" data-constraints="@Required")
+							label.form-label(for="feedback-2-message") What would you like to tell?
+						.form-wrap
+							label.checkbox-inline.small
+								input.checkbox-custom(type='checkbox')
+								|  I agree to the #[a.link-secondary.text-decoration-underline(href='privacy-policy.html') Privacy Policy] and #[a.link-secondary.text-decoration-underline(href='privacy-policy.html') Terms of Use], and want to receive news
+						button(type="submit").btn.btn-nero Submit
+
+	include ../sections/_map
+
+	//- Page Footer
+	include ../sections/_section-footer-default

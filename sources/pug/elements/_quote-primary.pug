@@ -1,0 +1,14 @@
+//- Quote primary
+mixin quote-primary(obj)
+	//- Quote primary
+	blockquote.quote-primary
+		.quote-body
+			.quote-body-inner
+				p: q=obj.text
+		.quote-footer
+			.unit.unit-horizontal.unit-spacing-md.align-items-center
+				.unit-left
+					+img(obj.img).img-circle
+				.unit-body
+					cite.h4=obj.cite
+					p.small=obj.caption

@@ -1,0 +1,95 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_icon-box
+include ../elements/_icon-box-horizontal
+include ../elements/_counter
+include ../elements/_quote-primary
+
+block page
+	// Page Header
+	include ../sections/_section-header-default
+
+	section.section.section-intro.bg-primary.position-relative
+		.container
+			.row.row-40
+				.col-md-8.col-lg-6.position-relative.z-1
+					h1.wow Transform your business. Take back your life.
+					p.wow Get the most out of your business with my coaching services.
+					.group-sm.group-btn.wow.fadeInUp(data-wow-delay='.3s')
+						a.btn.btn-nero(href='about-me.html') More about me
+						a.btn.btn-nero-outline-2(href='contact-me.html') Free consultation
+			+img('img-01-950x920.png').img-mod-1
+
+	section.section.section-lg.bg-default
+		.container
+			h2.text-center I help people tackle their business issues
+			p.text-center It’s easy to get the results you want with the top-quality advice.
+			.row.row-40.justify-content-center
+				.col-sm-6.col-lg-4.height-fill.wow.fadeInUp(data-wow-delay='0s')
+					+icon-box({
+						icon: 'icon-md icomoon-stats',
+						header: 'Career mentoring',
+						text: 'Accelerate your career and achieve your goals through mentoring at Lead Planner.'
+					}).shadow-lg
+				.col-sm-6.col-lg-4.height-fill.wow.fadeInUp(data-wow-delay='0.1s')
+					+icon-box({
+						icon: 'icon-md icomoon-user',
+						header: 'Work & life balance',
+						text: 'Gain more balance between work and life and make a positive change today.'
+					}).bg-primary
+				.col-sm-6.col-lg-4.height-fill.wow.fadeInUp(data-wow-delay='0.2s')
+					+icon-box({
+						icon: 'icon-md icomoon-aim',
+						header: 'Important decisions',
+						text: 'Decide what to do next with your work to achieve success with your business.'
+					}).bg-aqua-grey.context-dark
+
+	section.section.section-lg.bg-default
+		.container
+			.row.row-40.justify-content-md-between.flex-column-reverse.flex-md-row
+				.col-md-6
+					h2 Helping millions of owners create a business that works.
+					p My name is John Adams and I am a business coach and trainer. I work with you to increase your awareness and choices, so you can set meaningful goals and get the results you truly want. I will challenge you to learn and think differently.
+					.row.row-xs.row-20
+						.col-6.wow.fadeIn(data-wow-delay='.3s')
+							+counter({
+								title: 'Percentage of regular and returning customers',
+								value: 82,
+								postfix: '%'
+							})
+						.col-6.wow.fadeIn(data-wow-delay='.2s')
+							+counter({
+								title: 'Positive reviews and testimonials submitted by my clients',
+								value: 100,
+								postfix: '+'
+							})
+					a.btn.btn-nero.wow.fadeInUp(href='about-me.html' data-wow-delay='.1s') More about me
+				.col-md-5
+					+img('img-02-510x680').wow.fadeIn(data-wow-delay='.3s')
+
+	include ../sections/_section-services
+
+	section.section.section-lg.bg-primary
+		.container
+			.row.row-10.justify-content-lg-between
+				.col-md-6.col-lg-5
+					h2 Working together
+						br
+						| for your better life!
+					p At Lead Planner, I strive to help you achieve ambitious goals and reach new heights just by focusing on what’s important for you.
+				.col-md-6.col-lg-5
+					p.small An experienced business coach can easily help you get more from your business by setting clear goals and planning your actions on the way to success.
+					p As a professional and highly experienced business coach, I will be glad to guide you towards new goals for both you and your team. By ensuring the geometric growth of your business, you can push your company to the limit in order to get what you want.
+					.unit.unit-horizontal.unit-spacing-md.align-items-center.wow.fadeInUp(data-wow-delay='.1s')
+						.unit-left
+							+img('person-01-80x80').img-circle
+						.unit-body
+							h3.h4 John Adams
+							p.small.mt-2 Business coach, founder of Lead Planner
+					a.btn.btn-nero.wow.fadeInUp(href='about-me.html' data-wow-delay='.2s') More about me
+
+	include ../sections/_section-testimonials
+	include ../sections/_divider
+	include ../sections/_section-brands
+	include ../sections/_section-footer-default

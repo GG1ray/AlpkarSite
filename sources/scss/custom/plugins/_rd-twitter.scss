@@ -1,0 +1,121 @@
+//
+// RD Twitter
+// --------------------------------------------------
+
+// Twitter item minimal
+.twitter-item-minimal {
+  .tweet-user {
+    font-size: 16px;
+    font-weight: 700;
+    a {
+      @include link($primary, $black);
+
+      &:before {
+        content: '-';
+      }
+    }
+  }
+
+  .tweet-text {
+    a {
+      @include link($black, $primary);
+    }
+  }
+
+  // Offsets
+  * + .tweet-text {
+    margin-top: 0;
+  }
+
+  * + .tweet-user {
+    margin-top: 10px;
+  }
+}
+
+.twitter-item-minimal + .twitter-item-minimal {
+  margin-top: 25px;
+}
+
+// Twitter widget
+.twitter-widget {
+  $base-padding: 30px;
+
+  overflow: hidden;
+  background: $white;
+  border-radius: 6px;
+  box-shadow: $shadow-area-sm;
+
+  > a {
+    display: block;
+    color: $body-color;
+  }
+
+  .tweet-text {
+    a {
+      @include link($primary, $black);
+    }
+  }
+
+  .twitter-widget-time {
+    color: $body-color;
+  }
+
+  .twitter-widget-meta {
+    > * {
+      line-height: 1.1;
+    }
+    > * + * {
+      margin-top: 5px;
+    }
+  }
+
+  .twitter-widget-media {
+    position: relative;
+    z-index: 1;
+    // ratio
+    overflow: hidden;
+
+    > img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      min-height: 101%;
+    }
+
+    &:empty {
+      display: none;
+    }
+
+    &:not(:empty) {
+      padding-bottom: 42.5170068%;
+    }
+  }
+
+  .tweet-avatar {
+    display: block;
+    width: 48px;
+    height: 48px;
+    background: $gray-light;
+  }
+
+  .twitter-widget-header {
+    padding: $base-padding $base-padding 0 $base-padding;
+  }
+
+  .twitter-widget-inset {
+    padding: ($base-padding - 5px) $base-padding $base-padding / 2;
+  }
+
+  .twitter-widget-footer {
+    padding: $base-padding / 2 $base-padding;
+  }
+}
+
+* + .twitter-widget {
+  margin-top: 30px;
+}
+
+* + .twitter-wrap-1 {
+  margin-top: 30px;
+}

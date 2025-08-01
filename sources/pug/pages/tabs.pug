@@ -1,0 +1,110 @@
+extends  ../_skeleton
+
+//- Includes
+
+block variables
+	- pageName = 'Tabs'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Horizontal Tabs
+	section.section.section-md.bg-default
+		.container
+			h3.text-center Horizontal Tabs
+			.row.justify-content-md-center
+				.col-xl-10
+					//- Bootstrap tabs
+					#tabs-1.tabs-custom.tabs-horizontal.tabs-corporate
+						//- Nav tabs
+						ul.nav.nav-tabs
+							li: a.nav-link.active(href='#tabs-1-1' data-bs-toggle='tab') Tab 1
+							li: a.nav-link(href='#tabs-1-2' data-bs-toggle='tab') Tab 2
+							li: a.nav-link(href='#tabs-1-3' data-bs-toggle='tab') Tab 3
+							li: a.nav-link(href='#tabs-1-4' data-bs-toggle='tab') Tab 4
+							li: a.nav-link(href='#tabs-1-5' data-bs-toggle='tab') Tab 5
+
+						//- Tab panes
+						.tab-content
+							div#tabs-1-1.tab-pane.fade.show.active: p Once you decide to opt for any of our plans, you can run a 14-day free trial first. Including all the basic features of each of the offered pricing plans, it will help you decide which features are of the greatest value to you. Once the 14 day period is over, you will be asked to make your choice.
+							div#tabs-1-2.tab-pane.fade: p Web packages are there as a guideline and we can customize them so that they can fit your needs perfectly. We can either include or remove some functions and features. Just let us know what you need and we will give you the best solution.
+							div#tabs-1-3.tab-pane.fade: p There are two ways to look at this question. If you are looking to cut the costs you can do the updates yourself. The website will be in CMS and you will get the instructions on how you can update it by yourself. If you would like us to do the updates for you, we will do it and not only will we update the content, but also work on search engine optimization. That way your website will be up to date, and you will get more visitors over time.
+							div#tabs-1-4.tab-pane.fade: p Yes, we do. We can redesign your website so that it follows the latest trends. Redesign is less expensive than making a whole new website.
+							div#tabs-1-5.tab-pane.fade: p Yes, you can. Our plans are month-to-month or yearly. You are free to cancel the selected plan anytime you wish. Once you decide to cancel the current plan, we will not charge you for the next period. As soon as you decide what other plan to opt for, we will contact you for verification.
+
+
+	//- Vertical Tabs
+	section.section.section-md.bg-default
+		.container
+			h3.text-center Vertical Tabs
+			.row.justify-content-md-center
+				.col-xl-10
+					//- Bootstrap tabs
+					#tabs-2.tabs-custom.tabs-vertical.tabs-corporate
+						//- Nav tabs
+						ul.nav.nav-tabs
+							li: a.nav-link.active(href='#tabs-2-1' data-bs-toggle='tab') Tab 1
+							li: a.nav-link(href='#tabs-2-2' data-bs-toggle='tab') Tab 2
+							li: a.nav-link(href='#tabs-2-3' data-bs-toggle='tab') Tab 3
+							li: a.nav-link(href='#tabs-2-4' data-bs-toggle='tab') Tab 4
+
+						//- Tab panes
+						.tab-content
+							div#tabs-2-1.tab-pane.fade.show.active: p Once you decide to opt for any of our plans, you can run a 14-day free trial first. Including all the basic features of each of the offered pricing plans, it will help you decide which features are of the greatest value to you. Once the 14 day period is over, you will be asked to make your choice.
+							div#tabs-2-2.tab-pane.fade: p Web packages are there as a guideline and we can customize them so that they can fit your needs perfectly. We can either include or remove some functions and features. Just let us know what you need and we will give you the best solution.
+							div#tabs-2-3.tab-pane.fade: p There are two ways to look at this question. If you are looking to cut the costs you can do the updates yourself. The website will be in CMS and you will get the instructions on how you can update it by yourself. If you would like us to do the updates for you, we will do it and not only will we update the content, but also work on search engine optimization. That way your website will be up to date, and you will get more visitors over time.
+							div#tabs-2-4.tab-pane.fade: p Yes, we do. We can redesign your website so that it follows the latest trends. Redesign is less expensive than making a whole new website.
+
+
+	//- Tabs Line
+	section.section.section-md.bg-default
+		.container
+			h3.text-center Tabs Line
+			.row.justify-content-md-center
+				.col-md-10.col-lg-8.col-xl-6
+					//- Bootstrap tabs
+					#tabs-3.tabs-custom.tabs-horizontal.tabs-line
+						//- Nav tabs
+						ul.nav.nav-tabs
+							li: a.nav-link.active(href='#tabs-3-1' data-bs-toggle='tab') Tab 1
+							li: a.nav-link(href='#tabs-3-2' data-bs-toggle='tab') Tab 2
+							li: a.nav-link(href='#tabs-3-3' data-bs-toggle='tab') Tab 3
+							li: a.nav-link(href='#tabs-3-4' data-bs-toggle='tab') Tab 4
+
+						//- Tab panes
+						.tab-content
+							div#tabs-3-1.tab-pane.fade.show.active: p Once you decide to opt for any of our plans, you can run a 14-day free trial first. Including all the basic features of each of the offered pricing plans, it will help you decide which features are of the greatest value to you. Once the 14 day period is over, you will be asked to make your choice.
+							div#tabs-3-2.tab-pane.fade: p Web packages are there as a guideline and we can customize them so that they can fit your needs perfectly. We can either include or remove some functions and features. Just let us know what you need and we will give you the best solution.
+							div#tabs-3-3.tab-pane.fade: p There are two ways to look at this question. If you are looking to cut the costs you can do the updates yourself. The website will be in CMS and you will get the instructions on how you can update it by yourself. If you would like us to do the updates for you, we will do it and not only will we update the content, but also work on search engine optimization. That way your website will be up to date, and you will get more visitors over time.
+							div#tabs-3-4.tab-pane.fade: p Yes, we do. We can redesign your website so that it follows the latest trends. Redesign is less expensive than making a whole new website.
+
+
+	//- Tabs Gallery
+	section.section.section-md.bg-default
+		.container
+			h3.text-center Tabs Gallery
+			.row.justify-content-md-center
+				.col-md-10.col-lg-8.col-xl-6
+					//- Bootstrap tabs
+					#tabs-4.tabs-custom.tabs-horizontal.tabs-minimal
+						//- Nav tabs
+						ul.nav.nav-tabs.text-center
+							li: a.nav-link.active(href='#tabs-4-1' data-bs-toggle='tab') Tab 1
+							li: a.nav-link(href='#tabs-4-2' data-bs-toggle='tab') Tab 2
+							li: a.nav-link(href='#tabs-4-3' data-bs-toggle='tab') Tab 3
+							li: a.nav-link(href='#tabs-4-4' data-bs-toggle='tab') Tab 4
+
+						//- Tab panes
+						.tab-content
+							div#tabs-4-1.tab-pane.fade.show.active: p Once you decide to opt for any of our plans, you can run a 14-day free trial first. Including all the basic features of each of the offered pricing plans, it will help you decide which features are of the greatest value to you. Once the 14 day period is over, you will be asked to make your choice.
+							div#tabs-4-2.tab-pane.fade: p Web packages are there as a guideline and we can customize them so that they can fit your needs perfectly. We can either include or remove some functions and features. Just let us know what you need and we will give you the best solution.
+							div#tabs-4-3.tab-pane.fade: p There are two ways to look at this question. If you are looking to cut the costs you can do the updates yourself. The website will be in CMS and you will get the instructions on how you can update it by yourself. If you would like us to do the updates for you, we will do it and not only will we update the content, but also work on search engine optimization. That way your website will be up to date, and you will get more visitors over time.
+							div#tabs-4-4.tab-pane.fade: p Yes, we do. We can redesign your website so that it follows the latest trends. Redesign is less expensive than making a whole new website.
+
+
+	//- Page Footer
+	include ../sections/_section-footer-default

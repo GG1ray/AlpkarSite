@@ -1,0 +1,130 @@
+/*
+* Navbar components
+*/
+
+// RD Navbar
+.rd-navbar {
+  position: relative;
+  display: none;
+  background: $rd-navbar-background;
+  box-shadow: $rd-navbar-shadow;
+  z-index: 1060;
+}
+
+// RD Navbar Toggle
+.rd-navbar-toggle {
+  @include make-toggle(
+                  $rd-navbar-toggle-preset,
+                  $rd-navbar-min-line-height,
+                  $rd-navbar-min-font-size,
+                  $rd-navbar-fixed-toggle-color
+  );
+  background-color: transparent;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  display: none;
+}
+
+// RD Navbar Brand
+.rd-navbar-brand {
+  transition: none !important;
+  svg {
+    fill: $black;
+  }
+}
+
+// RD Navbar Nav
+.rd-navbar-nav {
+}
+
+// RD Navbar Search
+.rd-navbar-search {
+  .rd-navbar-search-toggle,
+  .rd-search-submit {
+    @include reset-button;
+  }
+
+  .form-input {
+    &::-ms-clear {
+      display: none;
+    }
+  }
+}
+
+// RD Navbar Search Toggle
+.rd-navbar-search-toggle {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  font: 400 18px/36px "FontAwesome";
+
+  &:before {
+    content: '\f002';
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &:after {
+    display: none;
+  }
+
+}
+
+// RD Navbar aside
+.rd-navbar-aside {
+  pointer-events: none;
+
+  > * { pointer-events: auto; }
+}
+
+.rd-navbar-aside-toggle {
+  display: none;
+  pointer-events: auto;
+}
+
+@mixin search-toggle-interactive($size, $before, $after) {
+  &,
+  &:before,
+  &:after {
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    @extend %rd-navbar-transition;
+  }
+
+  &:before,
+  &:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &:before {
+    content: $before;
+    transform: scale(1) rotate(0deg);
+  }
+
+  &:after {
+    content: $after;
+    opacity: 0;
+    transform: scale(0) rotate(-90deg);
+  }
+
+  &.active {
+    &:before {
+      opacity: 0;
+      transform: scale(0) rotate(90deg);
+    }
+
+    &:after {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+}

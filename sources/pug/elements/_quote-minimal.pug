@@ -1,0 +1,11 @@
+//- Quote minimal
+mixin quote-minimal(obj)
+  //- Quote minimal
+  blockquote.quote-minimal(class=obj.mod)
+    .quote-body
+      p: q=obj.text
+
+    .quote-meta
+      cite=obj.cite
+      p.caption=obj.caption
+

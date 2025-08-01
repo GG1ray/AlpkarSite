@@ -1,0 +1,104 @@
+extends  ../_skeleton
+
+//- Includes
+include ../elements/_quote-default
+include ../elements/_placeholders
+
+block variables
+	- pageName = 'Typography'
+
+block page
+	//- Page Header
+	include ../sections/_section-header-default
+
+	//- Page Content
+	+page-title(pageName)
+
+	//- Typography
+	section.section.section-md.bg-default
+		.container
+			.row.row-30.row-md-40
+				.col-12
+					h1 Heading 1
+					+text-placeholder
+
+				.col-12
+					h2 Heading 2
+					+text-placeholder
+
+				.col-12
+					h3 Heading 3
+					+text-placeholder
+
+				.col-12
+					h4 Heading 4
+					+text-placeholder
+
+				.col-12
+					h5 Heading 5
+					+text-placeholder
+
+				.col-12
+					h6 Heading 6
+					+text-placeholder
+
+
+	//- Blockquote
+	section.section.section-md.bg-default
+		.container
+			h3 Blockquote
+			+quote-default('I am very happy I’ve purchased Starbis template from your company. It really helps my business!')
+
+
+	//- Text Formatting
+	section.section.section-md.bg-default
+		.container
+			h3 Text Formatting
+			.box-text
+				a(href='#').link Link text
+				a(href='#').link.link-hover Hover link
+				a(href='#').link.link-active Press link
+				span.mark highlighted text
+				span.text-strike strickethrough text
+				span.text-underline underlined text.
+
+
+
+	//- Image Centered
+	section.section.section-md.bg-default
+		.container
+			h3 Image Centered
+			figure
+				+img('typography-1-1169x610')
+			p The smartest and most flexible Bootstrap template you've ever seen. Create exactly what you need with our powerful bootstrap toolkit.
+
+
+	//- Image Right
+	section.section.section-md.bg-default
+		.container
+			h3 Image Right
+			.row.row-30.flex-row-md-reverse.justify-content-end-md-justify
+				.col-md-6
+					figure: +img('typography-2-570x386')
+				.col-md-6
+					.inset-lg-right-40.inset-xl-right-85
+						p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page. It will tell you lots of interesting things about our company.
+						p Our site design and navigation has been thoroughly thought out. The layout is aesthetically appealing, contains concise texts in order not to take your precious time. Text styling allows scanning the pages quickly. Site navigation is extremely intuitive and user-friendly. You will always know where you are now and will be able to skip from one page to another with a single mouse click. We use only trusted, verified content, so you can believe every word we are saying. We are always happy to greet the new visitors on our site.
+
+
+	//- Image Left
+	section.section.section-md.bg-default
+		.container
+			h3 Image Left
+			.row.row-30.justify-content-end-md-justify
+				.col-md-6
+					figure: +img('typography-3-570x386')
+				.col-md-6
+					.inset-lg-left-40.inset-xl-left-70
+						p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page. It will tell you lots of interesting things about our company.
+						p Our site design and navigation has been thoroughly thought out. The layout is aesthetically appealing, contains concise texts in order not to take your precious time. Text styling allows scanning the pages quickly. Site navigation is extremely intuitive and user-friendly. You will always know where you are now and will be able to skip from one page to another with a single mouse click. We use only trusted, verified content, so you can believe every word we are saying. We are always happy to greet the new visitors on our site.
+
+
+
+	//- Page Footer
+	include ../sections/_section-footer-default

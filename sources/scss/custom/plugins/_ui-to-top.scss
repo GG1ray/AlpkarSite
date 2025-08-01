@@ -1,0 +1,52 @@
+/** @section UiToTop */
+
+.ui-to-top {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  line-height: 38px;
+  border-radius: 50%;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  z-index: 20;
+  transition: .3s all ease;
+  box-shadow: 0 0 1px 0px rgba($gray, .3);
+  transform: translateY(100px);
+
+  &, &:active, &:focus {
+    color: $white;
+    background: $gray-dark;
+  }
+
+  &:hover {
+    color: $white;
+    background: $primary;
+    box-shadow: 0 0 1px 0px rgba($black, .4);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.active{
+    transform: translateY(0);
+  }
+}
+
+.mobile .ui-to-top,
+.tablet .ui-to-top {
+  display: none !important;
+}
+
+@include media-breakpoint-up(sm) {
+  .ui-to-top {
+    right: 40px;
+    bottom: 40px;
+  }
+}
+
+
